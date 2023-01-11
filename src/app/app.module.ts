@@ -9,6 +9,7 @@ import { AdminHeaderComponent } from './common/admin-header/admin-header.compone
 import { AdminFooterComponent } from './common/admin-footer/admin-footer.component';
 import { UserHomeComponent } from './userPanel/user-home/user-home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminHomeComponent } from './adminPanel/admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserFooterComponent,
     AdminHeaderComponent,
     AdminFooterComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,
