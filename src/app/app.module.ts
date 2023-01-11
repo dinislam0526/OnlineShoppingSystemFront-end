@@ -10,6 +10,11 @@ import { AdminFooterComponent } from './common/admin-footer/admin-footer.compone
 import { UserHomeComponent } from './userPanel/user-home/user-home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminHomeComponent } from './adminPanel/admin-home/admin-home.component';
+import { FontPageComponent } from './userPanel/font-page/font-page.component';
+import { LoginPageComponent } from './userPanel/login-page/login-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularMaterialModule} from './materil.module';
+import { RegistrationPageComponent } from './userPanel/registration-page/registration-page.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +24,22 @@ import { AdminHomeComponent } from './adminPanel/admin-home/admin-home.component
     AdminHeaderComponent,
     AdminFooterComponent,
     UserHomeComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    FontPageComponent,
+    LoginPageComponent,
+    RegistrationPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }
