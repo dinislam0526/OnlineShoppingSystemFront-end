@@ -1,0 +1,56 @@
+@charset "ISO-8859-1";
+/* category section */
+.hoverImg{
+	overflow:hidden;
+}
+.hoverImg img{
+	transition:0.75s;
+}
+.hoverImg:hover img{
+	transform: scale(1.2);
+}
+.btn-card{
+	border:2px solid black;
+	background:#ffff80;
+	color:red;
+	font-size:15px;
+	font-weight:bold;
+	padding:2px 20px;
+}
+.btn-card:hover{
+	text-decoration:none;
+    background:none;
+	color:blue;
+	transition:0.50s;
+}
+.btn-view{
+	border:2px solid black;
+	background:none;
+	color:black;
+	font-size:15px;
+	font-weight:bold;
+	padding:2px 20px;
+}
+.btn-view:hover{
+	text-decoration:none;
+    background:#000;
+	color:red;
+	transition:0.50s;
+}
+.card{
+	height:450px;
+	width: 300px;
+	padding:2px 20px
+}
+.card-body{
+	height: 150px;
+}
+#cat-card{
+	height:270px;
+	width: 220px;
+	padding:2px 20px
+}
+#cat-body{
+	height: 100px;
+	
+}

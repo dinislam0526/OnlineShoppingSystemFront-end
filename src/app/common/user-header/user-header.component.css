@@ -1,0 +1,25 @@
+a {
+    font-size:14px;
+    font-weight:700
+    }
+    .superNav {
+    font-size:13px;
+    }
+    .form-control {
+    outline:none !important;
+    box-shadow: none !important;
+    }
+    @media screen and (max-width:540px){
+    .centerOnMobile {
+      text-align:center
+    }
+    }
+    .header__logo {
+        padding: 15px 0;
+        text-shadow: 2px 4px rgba(236, 225, 9, 0.849);
+    }
+    
+    .header__logo a {
+        display: inline-block;
+    }
+    
