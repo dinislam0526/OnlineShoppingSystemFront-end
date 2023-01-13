@@ -1,0 +1,6 @@
+ul li {
+    list-style: none;
+}
+mat-toolbar {
+    background-color: rgb(71, 184, 253);
+}

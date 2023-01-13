@@ -1,0 +1,40 @@
+.btn {
+    margin-right: 20px;
+}
+.btn-success{
+    width: 200px;
+}
+.btn-primary{
+    width: 150px;
+}
+mat-form-field {
+    margin-right: 20px;
+    width: 100%;
+}
+mat-expansion-panel{
+    background-color: rgb(240, 246, 250);
+}
+
+table {
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  th{
+    font-size: 16px;
+    background-color: rgb(236, 238, 241);
+  }
+
+.mat-raised-button{
+  margin-right: 5px;
+}
+
+.fa{
+  margin-right: 5px;
+}
+mat-card{
+  margin-top: 5px;
+}

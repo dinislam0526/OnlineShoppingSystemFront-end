@@ -1,0 +1,88 @@
+<mat-nav-list style="height: 800px;">
+  <div class="profile-card">
+    <div class="header">
+      <h2>Sayem Sikder</h2>
+      <h4>sayem@gmail.com</h4>
+    </div>
+    <img src="assets/images/sayem.jpg" alt="Sayem Sikder">
+  </div>
+  <mat-divider></mat-divider>
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin">
+    <mat-icon>dashboard</mat-icon><b>Dashboard</b>
+  </a>
+
+  <mat-divider></mat-divider>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/abc">
+    <mat-icon>dashboard</mat-icon><b>Admin Home</b>
+  </a>
+
+  <mat-divider></mat-divider>
+  <br>
+
+  <h2 matSubHeader class="hformat">
+    <mat-icon>build</mat-icon>Tools
+  </h2>
+
+
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>shopping_basket</mat-icon><b>Product Section</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/category">Product Category</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/product">Product Information</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/purchase">Purchase Product</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/purchasedetail">Purchase Product Details</a>
+  </mat-expansion-panel>
+
+
+
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon> store_mall_directory</mat-icon><b>Central Stock</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/centralstock">Centarl Stock Information</a>
+  </mat-expansion-panel>
+
+  <br>
+  <h2 matSubHeader>
+    <mat-icon>assignment</mat-icon>Reports
+  </h2>
+
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>assignment_returned</mat-icon><b>Purchase Reports</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/purchasereport">All Purchae</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/datepursaereport">Date as per Purchase</a>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>shop</mat-icon><b>Sale Reports</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/allsalereport">All Sale</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/datesale">Date as per Sale</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/saleperid">Sale Per ID</a>
+  </mat-expansion-panel>
+
+  
+</mat-nav-list>

@@ -15,6 +15,7 @@ import { LoginPageComponent } from './userPanel/login-page/login-page.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule} from './materil.module';
 import { RegistrationPageComponent } from './userPanel/registration-page/registration-page.component';
+import { DefaultModule } from './adminPanel/admin-home/default/default.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RegistrationPageComponent } from './userPanel/registration-page/registr
     BrowserAnimationsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    DefaultModule
   ],
 
   providers: [],

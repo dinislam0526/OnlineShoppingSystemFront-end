@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './adminPanel/admin-home/admin-home.component';
+import { DefaultComponent } from './adminPanel/admin-home/default/default.component';
+import { ProductComponent } from './adminPanel/components/product/product.component';
+import { AddcategoryComponent } from './adminPanel/shared/category/addcategory/addcategory.component';
+import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { FontPageComponent } from './userPanel/font-page/font-page.component';
 
 import { LoginPageComponent } from './userPanel/login-page/login-page.component';
@@ -15,7 +19,25 @@ const routes: Routes = [
   { path: 'FontPageComponent', component: FontPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'registration', component: RegistrationPageComponent },
-  { path: 'adminHome', component: AdminHomeComponent }
+  { path: 'adminHome', component: AdminHomeComponent },
+  {
+    path: 'admin',
+    component: DefaultComponent,
+    children: [
+      {
+      path: '',
+      component: DashboardComponent
+      },
+      {
+      path: 'abc',
+      component: AdminHomeComponent
+      },
+      {
+      path: 'category',
+      component: ProductComponent
+      }
+    ]
+  }
 
 ];
 
