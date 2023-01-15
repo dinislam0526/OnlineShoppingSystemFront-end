@@ -14,6 +14,7 @@ import { CategorylistComponent } from '../../shared/category/categorylist/catego
 import { CategoryserviceService } from '../../services/categoryServices/categoryservice.service';
 import { FormsModule } from '@angular/forms';
 import { CreatepurchaseComponent } from '../../components/createpurchase/createpurchase.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import { CreatepurchaseComponent } from '../../components/createpurchase/createp
         MatSidenavModule,
         MatDividerModule,
         AngularMaterialModule,
-        FormsModule
+        FormsModule,
+        FlexLayoutModule
     ]
 })
 export class AdminModule { }
