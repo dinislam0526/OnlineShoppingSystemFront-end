@@ -8,13 +8,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { FooterComponent } from 'src/app/common/components/footer/footer.component';
 import { HeaderComponent } from 'src/app/common/components/header/header.component';
 import { SidebarComponent } from 'src/app/common/components/sidebar/sidebar.component';
-import { AngularMaterialModule } from 'src/app/materil.module';
+import { AngularMaterialModule } from 'src/app/AngularMateril.module';
 import { ProductComponent } from '../../components/product/product.component';
 import { CategorylistComponent } from '../../shared/category/categorylist/categorylist.component';
-import { AddcategoryComponent } from '../../shared/category/addcategory/addcategory.component';
 import { CategoryserviceService } from '../../services/categoryServices/categoryservice.service';
 import { FormsModule } from '@angular/forms';
-import { LoginPageComponent } from 'src/app/userPanel/login-page/login-page.component';
+import { CreatepurchaseComponent } from '../../components/createpurchase/createpurchase.component';
 
 @NgModule({
     declarations: [
@@ -24,8 +23,8 @@ import { LoginPageComponent } from 'src/app/userPanel/login-page/login-page.comp
         FooterComponent,
         SidebarComponent,
         ProductComponent,
-        CategorylistComponent,
-        AddcategoryComponent
+        CreatepurchaseComponent,
+        CategorylistComponent
     ],
     providers:[
       CategoryserviceService
@@ -39,4 +38,4 @@ import { LoginPageComponent } from 'src/app/userPanel/login-page/login-page.comp
         FormsModule
     ]
 })
-export class DefaultModule { }
+export class AdminModule { }
