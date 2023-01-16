@@ -38,6 +38,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         AngularMaterialModule,
         FormsModule,
         FlexLayoutModule
+       
     ]
 })
 export class AdminModule { }

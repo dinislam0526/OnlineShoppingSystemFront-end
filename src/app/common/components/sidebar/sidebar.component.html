@@ -1,4 +1,4 @@
-<mat-nav-list style="height: 800px;">
+<mat-nav-list style="height: 1000px;">
   <div class="profile-card">
     <div class="header">
       <h2>Din Islam</h2>
@@ -7,24 +7,18 @@
     <img src="assets/images/dinislam2.jpg" alt="Din Islam">
   </div>
   <mat-divider></mat-divider>
-
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin">
     <mat-icon>dashboard</mat-icon><b>Dashboard</b>
   </a>
-
   <mat-divider></mat-divider>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/abc">
-    <mat-icon>dashboard</mat-icon><b>Admin Home</b>
+    <mat-icon>home</mat-icon><b>Admin Home</b>
   </a>
-
   <mat-divider></mat-divider>
   <br>
-
   <h2 matSubHeader class="hformat">
     <mat-icon>build</mat-icon>Tools
   </h2>
-
-
   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -40,9 +34,6 @@
     <mat-divider></mat-divider>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/purchasedetail">Purchase Product Details</a>
   </mat-expansion-panel>
-
-
-
   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -52,12 +43,10 @@
     <mat-divider></mat-divider>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/centralstock">Centarl Stock Information</a>
   </mat-expansion-panel>
-
   <br>
   <h2 matSubHeader>
     <mat-icon>assignment</mat-icon>Reports
   </h2>
-
   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -69,7 +58,6 @@
     <mat-divider></mat-divider>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/datepursaereport">Date as per Purchase</a>
   </mat-expansion-panel>
-
   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -83,6 +71,4 @@
     <mat-divider></mat-divider>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/saleperid">Sale Per ID</a>
   </mat-expansion-panel>
-
-  
 </mat-nav-list>
