@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  selector: 'app-addvendor',
+  templateUrl: './addvendor.component.html',
+  styleUrls: ['./addvendor.component.css']
 })
-export class ProductComponent implements OnInit {
-
-  constructor() { }
+export class AddvendorComponent implements OnInit{
 
   displayedColumns: string[] = ['Category ID', 'Category Name', 'Category Description', 'Actions'];
-
+   msg="";
   ngOnInit(): void {
+   
   }
-
+  
 }

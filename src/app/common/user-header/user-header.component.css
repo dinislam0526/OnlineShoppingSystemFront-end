@@ -16,7 +16,8 @@ a {
     }
     .header__logo {
         padding: 15px 0;
-        text-shadow: 2px 4px rgba(236, 225, 9, 0.849);
+        text-shadow: 2px 4px rgba(76, 14, 221, 0.849);
+        text-align:center;
     }
     
     .header__logo a {

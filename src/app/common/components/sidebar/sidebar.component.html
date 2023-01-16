@@ -1,3 +1,4 @@
+<!-- sidebar start -->
 <mat-nav-list style="height: 1000px;">
   <div class="profile-card">
     <div class="header">
@@ -6,19 +7,27 @@
     </div>
     <img src="assets/images/dinislam2.jpg" alt="Din Islam">
   </div>
+  <!-- Dashboard start -->
   <mat-divider></mat-divider>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin">
     <mat-icon>dashboard</mat-icon><b>Dashboard</b>
   </a>
+  <!-- Dashboard end -->
+  <!-- Home start -->
   <mat-divider></mat-divider>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/abc">
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/home">
     <mat-icon>home</mat-icon><b>Admin Home</b>
   </a>
+  <!-- Home end -->
   <mat-divider></mat-divider>
   <br>
+  <!-- Tools start -->
   <h2 matSubHeader class="hformat">
     <mat-icon>build</mat-icon>Tools
   </h2>
+  <!-- Tools end -->
+
+  <!-- Product section start -->
   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -28,12 +37,39 @@
     <mat-divider></mat-divider>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/category">Product Category</a>
     <mat-divider></mat-divider>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink=" ">Product Information</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/addProduct">Product Information</a>
     <mat-divider></mat-divider>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/purchase">Purchase Product</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/addvendor">Vendor Details</a>
     <mat-divider></mat-divider>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/purchasedetail">Purchase Product Details</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/purchase">Purchase Product Details</a>
   </mat-expansion-panel>
+  <!-- Product section end -->
+
+  <!-- Payment start -->
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>payments</mat-icon><b>Payment Method</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/centralstock">Add Payment Option</a>
+  </mat-expansion-panel>
+  <!-- Payment start -->
+
+  <!-- Delivery option start -->
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>local_shipping</mat-icon><b>Delivery Option</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/centralstock">Add Delivery Option</a>
+  </mat-expansion-panel>
+  <!-- Delivery option end -->
+
+  <!-- centralstock start -->
   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -43,10 +79,15 @@
     <mat-divider></mat-divider>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/centralstock">Centarl Stock Information</a>
   </mat-expansion-panel>
+  <!-- centralstock start -->
+
+  <!-- Report start -->
   <br>
   <h2 matSubHeader>
     <mat-icon>assignment</mat-icon>Reports
   </h2>
+
+  <!-- purchase report start -->
   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -58,6 +99,9 @@
     <mat-divider></mat-divider>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/datepursaereport">Date as per Purchase</a>
   </mat-expansion-panel>
+  <!-- purchase report end -->
+
+  <!-- sales report start -->
   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -71,4 +115,32 @@
     <mat-divider></mat-divider>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/saleperid">Sale Per ID</a>
   </mat-expansion-panel>
+  <!-- sales report start -->
+
+  <!-- Order Report start -->
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>done_all</mat-icon><b>Order Report</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/centralstock">Order Details</a>
+  </mat-expansion-panel>
+  <!-- Order Report end -->
+
+  <!-- Income and Expense Report start -->
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>account_balance_wallet</mat-icon><b>Income&Expenses Report</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/centralstock">Income&Expenses Details</a>
+  </mat-expansion-panel>
+  <!-- Income and Expense Report end -->
+
+  <!-- Report start -->
 </mat-nav-list>
+<!-- sidebar end -->

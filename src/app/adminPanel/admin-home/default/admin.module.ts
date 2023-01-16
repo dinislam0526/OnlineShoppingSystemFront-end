@@ -9,12 +9,13 @@ import { FooterComponent } from 'src/app/common/components/footer/footer.compone
 import { HeaderComponent } from 'src/app/common/components/header/header.component';
 import { SidebarComponent } from 'src/app/common/components/sidebar/sidebar.component';
 import { AngularMaterialModule } from 'src/app/AngularMateril.module';
-import { ProductComponent } from '../../components/product/product.component';
-import { CategorylistComponent } from '../../shared/category/categorylist/categorylist.component';
 import { CategoryserviceService } from '../../services/categoryServices/categoryservice.service';
 import { FormsModule } from '@angular/forms';
 import { CreatepurchaseComponent } from '../../components/createpurchase/createpurchase.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AddproductComponent } from '../../components/addproduct/addproduct.component';
+import { AddcategoryComponent } from '../../components/addcategory/addcategory.component';
+import { AddvendorComponent } from '../../components/addvendor/addvendor.component';
 
 @NgModule({
     declarations: [
@@ -23,9 +24,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         HeaderComponent,
         FooterComponent,
         SidebarComponent,
-        ProductComponent,
         CreatepurchaseComponent,
-        CategorylistComponent
+        AddcategoryComponent,
+        AddproductComponent,
+        AddvendorComponent
     ],
     providers:[
       CategoryserviceService

@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule} from './AngularMateril.module';
 import { RegistrationPageComponent } from './userPanel/registration-page/registration-page.component';
 import { AdminModule} from './adminPanel/admin-home/default/admin.module';
+import { CardComponent } from './userPanel/card/card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AdminModule} from './adminPanel/admin-home/default/admin.module';
     AdminHomeComponent,
     FontPageComponent,
     LoginPageComponent,
-    RegistrationPageComponent
+    RegistrationPageComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
