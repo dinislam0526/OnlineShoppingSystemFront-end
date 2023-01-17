@@ -8,8 +8,11 @@ import { AddvendorComponent } from './adminPanel/components/addvendor/addvendor.
 import { CreatepurchaseComponent } from './adminPanel/components/createpurchase/createpurchase.component';
 import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { CardComponent } from './userPanel/card/card.component';
+import { CheckoutComponent } from './userPanel/checkout/checkout.component';
 import { FontPageComponent } from './userPanel/font-page/font-page.component';
 import { LoginPageComponent } from './userPanel/login-page/login-page.component';
+import { PaymentmethodComponent } from './userPanel/paymentmethod/paymentmethod.component';
+import { ProductViewComponent } from './userPanel/product-view/product-view.component';
 import { RegistrationPageComponent } from './userPanel/registration-page/registration-page.component';
 import { UserHomeComponent } from './userPanel/user-home/user-home.component';
 
@@ -23,6 +26,10 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationPageComponent },
   { path: 'adminHome', component: AdminHomeComponent },
   { path: 'card', component: CardComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'paymentmethod', component: PaymentmethodComponent },
+  { path: 'view', component: ProductViewComponent },
+
 
   {
     path: 'admin',

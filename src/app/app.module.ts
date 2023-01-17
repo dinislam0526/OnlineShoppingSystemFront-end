@@ -14,6 +14,9 @@ import { AngularMaterialModule} from './AngularMateril.module';
 import { RegistrationPageComponent } from './userPanel/registration-page/registration-page.component';
 import { AdminModule} from './adminPanel/admin-home/default/admin.module';
 import { CardComponent } from './userPanel/card/card.component';
+import { CheckoutComponent } from './userPanel/checkout/checkout.component';
+import { PaymentmethodComponent } from './userPanel/paymentmethod/paymentmethod.component';
+import { ProductViewComponent } from './userPanel/product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { CardComponent } from './userPanel/card/card.component';
     FontPageComponent,
     LoginPageComponent,
     RegistrationPageComponent,
-    CardComponent
+    CardComponent,
+    CheckoutComponent,
+    PaymentmethodComponent,
+    ProductViewComponent
   ],
   imports: [
     BrowserModule,
