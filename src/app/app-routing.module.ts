@@ -9,6 +9,7 @@ import { CreatepurchaseComponent } from './adminPanel/components/createpurchase/
 import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { CardComponent } from './userPanel/card/card.component';
 import { CheckoutComponent } from './userPanel/checkout/checkout.component';
+import { ContactComponent } from './userPanel/contact/contact.component';
 import { FontPageComponent } from './userPanel/font-page/font-page.component';
 import { LoginPageComponent } from './userPanel/login-page/login-page.component';
 import { PaymentmethodComponent } from './userPanel/paymentmethod/paymentmethod.component';
@@ -29,6 +30,8 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'paymentmethod', component: PaymentmethodComponent },
   { path: 'view', component: ProductViewComponent },
+  { path: 'contact', component: ContactComponent },
+
 
 
   {

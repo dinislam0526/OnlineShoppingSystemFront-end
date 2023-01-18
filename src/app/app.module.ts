@@ -17,6 +17,7 @@ import { CardComponent } from './userPanel/card/card.component';
 import { CheckoutComponent } from './userPanel/checkout/checkout.component';
 import { PaymentmethodComponent } from './userPanel/paymentmethod/paymentmethod.component';
 import { ProductViewComponent } from './userPanel/product-view/product-view.component';
+import { ContactComponent } from './userPanel/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductViewComponent } from './userPanel/product-view/product-view.comp
     CardComponent,
     CheckoutComponent,
     PaymentmethodComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
