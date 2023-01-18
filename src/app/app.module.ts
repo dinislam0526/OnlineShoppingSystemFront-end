@@ -18,6 +18,7 @@ import { CheckoutComponent } from './userPanel/checkout/checkout.component';
 import { PaymentmethodComponent } from './userPanel/paymentmethod/paymentmethod.component';
 import { ProductViewComponent } from './userPanel/product-view/product-view.component';
 import { ContactComponent } from './userPanel/contact/contact.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ContactComponent } from './userPanel/contact/contact.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    AdminModule
+    AdminModule,
+    HttpClientModule
     
   ],
 

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Category } from '../../models/category/Category.model';
+import { Category } from '../../models/Category.model';
+
 
 const headerOption = {
   headers: new HttpHeaders({
@@ -13,7 +14,7 @@ const headerOption = {
 @Injectable()
 export class CategoryserviceService {
 
-  dataUrl = 'http://localhost:8080/ChainSuperShopManagement/api/v1/pcategory';
+  dataUrl = 'http://localhost:8080/category';
 
   panelOpenState = false;
 
@@ -42,7 +43,7 @@ export class CategoryserviceService {
   }
 
   createCategory(cat: Category): Observable<Category> {
-    return this.http.post<Category>(this.dataUrl, cat, headerOption).pipe(
+    return this.http.post<Category>(this.dataUrl+ '/post', cat).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })

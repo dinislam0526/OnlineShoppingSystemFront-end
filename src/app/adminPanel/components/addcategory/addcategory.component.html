@@ -8,23 +8,23 @@
       <div class="col-md-4">
         <mat-form-field appearance="outline">
           <mat-label>Category ID</mat-label>
-          <input matInput placeholder="Category id" type="text" disabled>
+          <input matInput placeholder="Category id" type="text" [(ngModel)]="categoryService.currentCategory.catid" disabled>
         </mat-form-field>
       </div>
       <div class="col-md-8">
         <mat-form-field appearance="outline">
           <mat-label>Category Name</mat-label>
-          <input matInput placeholder="Write a new category name" type="text">
+          <input matInput placeholder="Write a new category name" type="text" [(ngModel)]="categoryService.currentCategory.catname">
         </mat-form-field>
       </div>
     </div>
     <mat-form-field appearance="outline">
       <mat-label>Category Description</mat-label>
-      <input matInput placeholder="Write category description" type="text">
+      <input matInput placeholder="Write category description" type="text" [(ngModel)]="categoryService.currentCategory.catdesc">
     </mat-form-field>
-  <button class="btn btn-success"> <i class="fa fa-save"></i>Save</button>
-  <button class="btn btn-primary"> <i class="fa fa-retweet"></i> Clear</button>
-    <font color="green" size="10px">"Success"</font>
+  <button class="btn btn-success" (click)="createOrUpdateCategory(categoryService.currentCategory)"> <i class="fa fa-save"></i>Save</button>
+  <button class="btn btn-primary" (click)="clear()"> <i class="fa fa-retweet"></i> Clear</button>
+    <font color="green" size="10px">{{msg}}</font>
   </mat-expansion-panel>
 <br>
   <mat-divider></mat-divider>
