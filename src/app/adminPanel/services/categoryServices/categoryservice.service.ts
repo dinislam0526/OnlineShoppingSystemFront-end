@@ -14,7 +14,7 @@ const headerOption = {
 @Injectable()
 export class CategoryserviceService {
 
-  dataUrl = 'http://localhost:8080/category';
+  dataUrl = 'http://localhost:8080/api';
 
   panelOpenState = false;
 
@@ -43,7 +43,7 @@ export class CategoryserviceService {
   }
 
   createCategory(cat: Category): Observable<Category> {
-    return this.http.post<Category>(this.dataUrl+ '/post', cat).pipe(
+    return this.http.post<Category>(this.dataUrl+ '/post', cat, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })
