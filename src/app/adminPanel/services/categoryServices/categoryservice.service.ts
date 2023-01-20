@@ -14,7 +14,7 @@ const headerOption = {
 @Injectable()
 export class CategoryserviceService {
 
-  dataUrl = 'http://localhost:8080/api';
+  dataUrl = 'http://localhost:8080/category';
 
   panelOpenState = false;
 
