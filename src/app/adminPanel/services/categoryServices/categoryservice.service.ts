@@ -31,11 +31,11 @@ export class CategoryserviceService {
   }
 
   getAllCategory(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.dataUrl, headerOption);
+    return this.http.get<Category[]>(this.dataUrl+'/getAll', headerOption);
   }
 
   deleteCategory(catid: number): Observable<Category> {
-    return this.http.delete<Category>(this.dataUrl + '/' + catid, headerOption).pipe(
+    return this.http.delete<Category>(this.dataUrl + '/delete/' + catid, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })
@@ -51,7 +51,7 @@ export class CategoryserviceService {
   }
 
   updateCategory(cat: Category): Observable<Category> {
-    return this.http.put<Category>(this.dataUrl + '/' + cat.catid, cat, headerOption).pipe(
+    return this.http.put<Category>(this.dataUrl + '/update/' + cat.catid, cat, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })

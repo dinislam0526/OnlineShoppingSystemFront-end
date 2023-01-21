@@ -39,30 +39,31 @@
         <input matInput placeholder="Write anything">
       </mat-form-field>
       <div>
-        <table mat-table>
+        <table mat-table [dataSource]="dataSource">
           <!-- ID Column -->
           <ng-container matColumnDef="Category ID">
             <th mat-header-cell *matHeaderCellDef> Category ID </th>
+            <td mat-cell *matCellDef="let cat"> {{cat.catid}} </td>
           </ng-container>
             <!-- Name Column -->
           <ng-container matColumnDef="Category Name">
             <th mat-header-cell *matHeaderCellDef> Category Name </th>
-            <td mat-cell *matCellDef="let cat"> Product </td>
+            <td mat-cell *matCellDef="let cat"> {{cat.catname}} </td>
           </ng-container>
   
           <!-- Description Column -->
           <ng-container matColumnDef="Category Description">
             <th mat-header-cell *matHeaderCellDef> Category Description </th>
-            <td mat-cell *matCellDef="let cat"> Description </td>
+            <td mat-cell *matCellDef="let cat"> {{cat.catdesc}} </td>
           </ng-container>
   
           <ng-container matColumnDef="Actions">
             <th mat-header-cell *matHeaderCellDef>Actions</th>
             <td mat-cell *matCellDef="let cat">
-              <button mat-raised-button color="primary">
+              <button mat-raised-button color="primary" (click)="editCategory(cat)">
                 <i class="fa fa-edit"></i> Edit
               </button>
-              <button mat-raised-button color="warn">
+              <button mat-raised-button color="warn" (click)="deleteCategory(cat.catid)">
                 <i class="fa fa-trash"></i> Delete
               </button>
             </td>
