@@ -51,7 +51,7 @@ export class CategoryserviceService {
   }
 
   updateCategory(cat: Category): Observable<Category> {
-    return this.http.put<Category>(this.dataUrl + '/update/' + cat.catid, cat, headerOption).pipe(
+    return this.http.put<Category>(this.dataUrl + '/update', cat, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })

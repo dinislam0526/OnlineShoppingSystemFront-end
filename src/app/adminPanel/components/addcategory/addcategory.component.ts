@@ -24,6 +24,7 @@ export class AddcategoryComponent implements OnInit {
     this.categoryService.refreshNeed.subscribe(() => {
       this.getAllCategories();
     });
+     
   }
 
   togglePanel() {
@@ -51,6 +52,8 @@ export class AddcategoryComponent implements OnInit {
 
   deleteCategory(catid: number) {
     this.categoryService.deleteCategory(catid).subscribe();
+
+    this.ngOnInit();
   }
 
   editCategory(cat: Category) {
