@@ -60,8 +60,7 @@ export class AddcategoryComponent implements OnInit {
     this.categoryService.currentCategory = Object.assign({}, cat);
     this.togglePanel();
   }
-
-
+  
   getAllCategories(){
     this.categoryService.getAllCategory().subscribe(
       (data: Category[]) => {
