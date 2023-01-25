@@ -14,9 +14,9 @@
     <div class="col-md-8">
       <mat-form-field>
         <mat-label>Product Category</mat-label>
-        <mat-select [(ngModel)]="productService.currentProduct.catid">
-          <mat-option *ngFor="let allcat of allCategory" [(ngModel)]="allcat.catid">
-            {{allcat.catname}}
+        <mat-select >
+          <mat-option >
+            
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -50,9 +50,8 @@
       </mat-form-field>
     </div>
   </div>
-  <button class="btn btn-success"> <i class="fa fa-save"></i>
-    Save</button>
-  <button class="btn btn-primary"> <i class="fa fa-retweet"></i> Clear</button>
+  <button class="btn btn-success" (click)="createOrUpdateProduct()"> <i class="fa fa-save"></i>Save</button>
+  <button class="btn btn-primary" > <i class="fa fa-retweet"></i> Clear</button>
 </mat-expansion-panel>
 <br>
 <mat-divider></mat-divider>
