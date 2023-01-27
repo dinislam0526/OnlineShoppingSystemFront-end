@@ -14,9 +14,9 @@
     <div class="col-md-8">
       <mat-form-field>
         <mat-label>Product Category</mat-label>
-        <mat-select >
-          <mat-option >
-            
+        <mat-select [(ngModel)]="productService.currentProduct.catid" >
+          <mat-option *ngFor="let allcat of allCategory">
+            {{allcat.catname}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -89,7 +89,7 @@
         </ng-container>
         <ng-container matColumnDef="Product ImageName">
           <th mat-header-cell *matHeaderCellDef> Product ImageName </th>
-          <td mat-cell *matCellDef="let product"> {{product[0].pimgname}} </td>
+          <td mat-cell *matCellDef="let product"> </td>
         </ng-container>
         <ng-container matColumnDef="Actions">
           <th mat-header-cell *matHeaderCellDef>Actions</th>

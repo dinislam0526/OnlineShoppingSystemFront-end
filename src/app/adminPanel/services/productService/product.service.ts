@@ -23,9 +23,9 @@ export class ProductService {
 
   dataUrl = 'http://localhost:8080/product';
 
-  // dataUrl2 = 'http://localhost:8080/api/v1/pcategory';
+  dataUrl2 = 'http://localhost:8080/category';
 
-  // dataUrl3 = 'http://localhost:8080/api/v1/productwithcatname';
+  dataUrl3 = 'http://localhost:8080/api/v1/productwithcatname';
 
 
   currentProduct: Product = new Product();
@@ -41,25 +41,25 @@ export class ProductService {
     return this.refreshNeeded;
   }
 
-  // getAllProduct(): Observable<Product[]> {
-  //   return this.http.get<Product[]>(this.dataUrl, headerOption);
-  // }
+  getAllProduct(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.dataUrl, headerOption);
+  }
 
-  // getAllProductAndCategory():Observable<Object[]>{
-  //   return this.http.get<Object[]>(this.dataUrl, headerOption);
-  // }
+  getAllProductAndCategory():Observable<Object[]>{
+    return this.http.get<Object[]>(this.dataUrl, headerOption);
+  }
 
-  // getAllCategoryName(): Observable<Category[]> {
-  //   return this.http.get<Category[]>(this.dataUrl+'/catnamelist', headerOption);
-  // }
+  getAllCategoryName(): Observable<Category[]> {
+    return this.http.get<Category[]>('http://localhost:8080/category/catnamelist', headerOption);
+  }
 
-  // deleteProduct(pid: number): Observable<Product> {
-  //   return this.http.delete<Product>(this.dataUrl + '/' + pid, headerOption).pipe(
-  //     tap(() => {
-  //       this.refreshNeeded.next();
-  //     })
-  //   );
-  // }
+  deleteProduct(pid: number): Observable<Product> {
+    return this.http.delete<Product>(this.dataUrl + '/' + pid, headerOption).pipe(
+      tap(() => {
+        this.refreshNeeded.next();
+      })
+    );
+  }
 
   createProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(this.dataUrl+'/post', product, headerOption).pipe(

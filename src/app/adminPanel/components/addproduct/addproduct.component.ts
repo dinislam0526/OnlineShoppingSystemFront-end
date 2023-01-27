@@ -19,17 +19,17 @@ export class AddproductComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.getAllCategoryName();
+    this.getAllCategoryName();
   }
 
 
-  // getAllCategoryName(){
-  //   this.productService.getAllCategoryName().subscribe(
-  //     (data: Category[]) => {
-  //       this.allCategory = data
-  //     }
-  //   );
-  // }
+  getAllCategoryName(){
+    this.productService.getAllCategoryName().subscribe(
+      (data: Category[]) => {
+        this.allCategory = data
+      }
+    );
+  }
 
   createOrUpdateProduct() {
     console.log(this.productService.currentProduct);
