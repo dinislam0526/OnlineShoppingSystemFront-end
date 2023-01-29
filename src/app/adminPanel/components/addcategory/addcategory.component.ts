@@ -52,8 +52,6 @@ export class AddcategoryComponent implements OnInit {
 
   deleteCategory(catid: number) {
     this.categoryService.deleteCategory(catid).subscribe();
-
-    this.ngOnInit();
   }
 
   editCategory(cat: Category) {

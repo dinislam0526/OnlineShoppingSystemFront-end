@@ -42,7 +42,7 @@ export class ProductService {
   }
 
   getAllProduct(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.dataUrl, headerOption);
+    return this.http.get<Product[]>(this.dataUrl+'/getAll', headerOption);
   }
 
   getAllProductAndCategory():Observable<Object[]>{
@@ -50,11 +50,11 @@ export class ProductService {
   }
 
   getAllCategoryName(): Observable<Category[]> {
-    return this.http.get<Category[]>('http://localhost:8080/category/catnamelist', headerOption);
+    return this.http.get<Category[]>(this.dataUrl2+'/catnamelist', headerOption);
   }
 
   deleteProduct(pid: number): Observable<Product> {
-    return this.http.delete<Product>(this.dataUrl + '/' + pid, headerOption).pipe(
+    return this.http.delete<Product>(this.dataUrl + '/delete/' + pid, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })

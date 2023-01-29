@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Category } from '../../models/Category.model';
 import { Product } from '../../models/product.mode';
 import { ProductService } from '../../services/productService/product.service';
@@ -12,7 +14,8 @@ export class AddproductComponent implements OnInit {
 
   displayedColumns: string[] = ['Product ID', 'Category Name','Product Name','Product Price', 'Product Description', 'Product ImageName', 'Actions'];
   allCategory!: Category[];
-
+  dataSource!: MatTableDataSource<Product>;
+  @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
 
   constructor(
     public productService: ProductService
@@ -20,8 +23,21 @@ export class AddproductComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCategoryName();
+
+    this.getAllproduct();
+    this.productService.refreshNeed.subscribe(() => {
+      this.getAllproduct();
+    });
   }
 
+  getAllproduct(){
+    this.productService.getAllProduct().subscribe(
+      (data: Product[]) => {
+        this.dataSource= new MatTableDataSource (data);
+        this.dataSource.paginator = this.paginator;
+      }
+    );
+  }
 
   getAllCategoryName(){
     this.productService.getAllCategoryName().subscribe(
@@ -46,6 +62,10 @@ export class AddproductComponent implements OnInit {
 
   updateProduct(product: Product) {
     this.productService.updateProduct(product).subscribe();
+  }
+
+  deleteProduct(pro_id: number) {
+    this.productService.deleteProduct(pro_id).subscribe();
   }
 
   // clear() {
