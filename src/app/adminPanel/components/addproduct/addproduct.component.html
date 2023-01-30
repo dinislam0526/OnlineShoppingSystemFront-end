@@ -15,7 +15,7 @@
       <mat-form-field>
         <mat-label>Product Category</mat-label>
         <mat-select [(ngModel)]="productService.currentProduct.catid">
-          <mat-option *ngFor="let allcat of allCategory">
+          <mat-option *ngFor="let allcat of allCategory" [value]="allcat.catid">
             {{allcat.catname}}
           </mat-option>
         </mat-select>
