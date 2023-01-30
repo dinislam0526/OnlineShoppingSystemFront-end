@@ -68,9 +68,18 @@ export class AddproductComponent implements OnInit {
     this.productService.deleteProduct(pro_id).subscribe();
   }
 
-  // clear() {
-  //   this.productService.currentProduct =new Product();
-  // }
+  togglePanel() {
+    this.productService.panelOpenState = !this.productService.panelOpenState
+  }
+
+  editCategory(pro: Product) {
+    this.productService.currentProduct = Object.assign({}, pro);
+    this.togglePanel();
+  }
+
+  clear() {
+    this.productService.currentProduct =new Product();
+  }
 
 
 }

@@ -70,7 +70,7 @@ export class ProductService {
   }
 
   updateProduct(product: Product): Observable<Product> {
-    return this.http.put<Product>(this.dataUrl + '/' + product.pro_id, product, headerOption).pipe(
+    return this.http.put<Product>(this.dataUrl + '/update', product, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })
