@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import Swal from 'sweetalert2';
 import { Category } from '../../models/Category.model';
 import { Product } from '../../models/product.mode';
 import { ProductService } from '../../services/productService/product.service';
@@ -65,7 +66,25 @@ export class AddproductComponent implements OnInit {
   }
 
   deleteProduct(pro_id: number) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to delete this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
     this.productService.deleteProduct(pro_id).subscribe();
+   
   }
 
   togglePanel() {
