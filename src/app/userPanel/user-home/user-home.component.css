@@ -40,10 +40,10 @@
 .card{
 	height:450px;
 	width: 300px;
-	padding:2px 20px
+	/* padding:2px 20px */
 }
 .card-body{
-	height: 150px;
+	height: 200px;
 }
 #cat-card{
 	height:270px;

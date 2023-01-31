@@ -14,8 +14,8 @@
     <div class="col-md-8">
       <mat-form-field>
         <mat-label>Product Category</mat-label>
-        <mat-select [(ngModel)]="productService.currentProduct.catid">
-          <mat-option *ngFor="let allcat of allCategory" [value]="allcat.catid">
+        <mat-select [(ngModel)]="productService.currentProduct.pro_cat">
+          <mat-option *ngFor="let allcat of allCategory" [value]="allcat.catname">
             {{allcat.catname}}
           </mat-option>
         </mat-select>
@@ -73,7 +73,7 @@
         </ng-container>
         <ng-container matColumnDef="Category Name">
           <th mat-header-cell *matHeaderCellDef> Category Name </th>
-          <td mat-cell *matCellDef="let product"> {{product.catname}}</td>
+          <td mat-cell *matCellDef="let product"> {{product.pro_cat}}</td>
         </ng-container>
         <ng-container matColumnDef="Product Name">
           <th mat-header-cell *matHeaderCellDef> Product Name </th>
