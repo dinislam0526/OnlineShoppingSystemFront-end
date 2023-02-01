@@ -45,6 +45,14 @@ export class ProductService {
     return this.http.get<Product[]>(this.dataUrl+'/getAll', headerOption);
   }
 
+  getById(pid: number): Observable<Product> {
+    return this.http.get<Product>(this.dataUrl + '/getById/' + pid, headerOption).pipe(
+      tap(() => {
+        this.refreshNeeded.next();
+      })
+    );
+  }
+
   getAllProductAndCategory():Observable<Object[]>{
     return this.http.get<Object[]>(this.dataUrl, headerOption);
   }

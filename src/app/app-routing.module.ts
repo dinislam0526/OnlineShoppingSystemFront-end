@@ -27,10 +27,13 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationPageComponent },
   { path: 'adminHome', component: AdminHomeComponent },
   { path: 'card', component: CardComponent },
+  { path: 'product/:proid/card', component: CardComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'paymentmethod', component: PaymentmethodComponent },
-  { path: 'view', component: ProductViewComponent },
+  { path: 'product/:proid/view', component: ProductViewComponent },
   { path: 'contact', component: ContactComponent },
+  
+
 
 
 
