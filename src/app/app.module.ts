@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminHomeComponent } from './adminPanel/admin-home/admin-home.component';
 import { FontPageComponent } from './userPanel/font-page/font-page.component';
 import { LoginPageComponent } from './userPanel/login-page/login-page.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule} from './AngularMateril.module';
 import { RegistrationPageComponent } from './userPanel/registration-page/registration-page.component';
 import { AdminModule} from './adminPanel/admin-home/default/admin.module';
@@ -44,7 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     AngularMaterialModule,
     AdminModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
     
   ],
 

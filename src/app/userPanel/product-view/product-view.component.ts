@@ -12,6 +12,7 @@ export class ProductViewComponent {
 
   id!:number;
   allProduct!:Product;
+  productQuantity:number=1;
 
   constructor(
     public productService: ProductService,
@@ -24,6 +25,14 @@ export class ProductViewComponent {
     this.productService.getById(this.id).subscribe((data:Product)=>{
       this.allProduct = data;
     })
+  }
+
+  handleQuantity(val:string){
+    if(this.productQuantity <20 && val === 'plus'){
+      this.productQuantity += 1;
+    }else if(this.productQuantity >1 && val === 'min'){
+      this.productQuantity -= 1;
+    }
   }
 
 }

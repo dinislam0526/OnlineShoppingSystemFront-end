@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SignUp } from 'src/app/adminPanel/models/SignUp.model';
+import { SingUpService } from 'src/app/adminPanel/services/signUpService/sing-up.service';
 
 @Component({
   selector: 'app-registration-page',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./registration-page.component.css']
 })
 export class RegistrationPageComponent {
-  Roles: any = ['Admin', 'Author', 'Reader'];
+  
+  constructor(public signUpService:SingUpService){}
+  
+  ngOnInit(): void {
+   
+  }
+  UserCreate(data:SignUp){
+    this.signUpService.create(data).subscribe();
+    alert("Sign Up completed!!")
+  }
 }

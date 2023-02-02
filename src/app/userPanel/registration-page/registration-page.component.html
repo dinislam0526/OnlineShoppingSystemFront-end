@@ -9,28 +9,24 @@ margin-top: 60px;
 margin-bottom: 150px;">
     <mat-card class="box">
       <mat-card-header>
-        <mat-card-title>Register</mat-card-title>
+        <mat-card-title>Sign Up</mat-card-title>
       </mat-card-header>
-      <form class="example-form">
+      <form class="example-form" #userSignUp="ngForm" (ngSubmit)="UserCreate(userSignUp.value)">
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username">
+            <input matInput placeholder="Username" type="text" name="username"  ngModel >
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email">
+            <input matInput placeholder="Email" type="text" name="email" ngModel>
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password">
+            <input matInput placeholder="Password" type="text" name="password" ngModel>
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <mat-label>Choose a role...</mat-label>
-            <mat-select>
-              <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
-              </mat-option>
-            </mat-select>
+            <input matInput placeholder="Phone Number" type="text" name="phone" ngModel>
           </mat-form-field>
         </mat-card-content>
-        <button mat-raised-button  color="primary" style="width: 150px;">Register</button>
+        <button mat-raised-button  color="primary" style="width: 150px;">Sign Up</button>
       </form>
     </mat-card>
   </div>

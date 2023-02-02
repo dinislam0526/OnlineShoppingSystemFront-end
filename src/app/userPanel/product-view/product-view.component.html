@@ -76,13 +76,13 @@
                 <div class="d-flex align-items-center mb-4 pt-2">
                     <div class="input-group quantity mr-3" style="width: 130px;">
                         <div class="input-group-btn">
-                            <button class="btn btn-warning btn-minus">
+                            <button class="btn btn-warning btn-minus" (click)="handleQuantity('min')">
                                 <i class="fa fa-minus"></i>
                             </button>
                         </div>
-                        <input type="text" class="form-control border-0 text-center" value="1">
+                        <input type="text" class="form-control border-0 text-center" value="{{productQuantity}}">
                         <div class="input-group-btn">
-                            <button class="btn btn-warning btn-plus">
+                            <button class="btn btn-warning btn-plus" (click)="handleQuantity('plus')">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </div>
