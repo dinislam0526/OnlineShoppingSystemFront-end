@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { SignUp } from '../../models/SignUp.model';
@@ -21,13 +22,25 @@ export class SingUpService {
   currentSignUp: SignUp = new SignUp();
   
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router:Router
   ) { }
 
   private refreshNeeded = new Subject<void>();
 
   get refreshNeed() {
     return this.refreshNeeded;
+  }
+
+  create(sign: SignUp): Observable<SignUp> {
+    console.log(sign)
+    return this.http.post<SignUp>(this.dataUrl+ '/post', sign, headerOption).pipe(
+      tap(() => {
+        this.refreshNeeded.next();
+        this.router.navigate(['/']);
+      })
+    );
+    
   }
 
   getAll(): Observable<SignUp[]> {
@@ -42,13 +55,7 @@ export class SingUpService {
     );
   }
 
-  create(sign: SignUp): Observable<SignUp> {
-    return this.http.post<SignUp>(this.dataUrl+ '/post', sign, headerOption).pipe(
-      tap(() => {
-        this.refreshNeeded.next();
-      })
-    );
-  }
+  
 
   update(cat: SignUp): Observable<SignUp> {
     return this.http.put<SignUp>(this.dataUrl + '/update', cat, headerOption).pipe(

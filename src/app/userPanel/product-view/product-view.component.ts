@@ -11,8 +11,9 @@ import { ProductService } from 'src/app/adminPanel/services/productService/produ
 export class ProductViewComponent {
 
   id!:number;
-  allProduct!:Product;
+  allProduct!: Product;
   productQuantity:number=1;
+  removeCart = false;
 
   constructor(
     public productService: ProductService,
@@ -20,11 +21,22 @@ export class ProductViewComponent {
   ) { }
 
   ngOnInit(): void {
-    
     this.id = this.route.snapshot.params['proid'];
     this.productService.getById(this.id).subscribe((data:Product)=>{
       this.allProduct = data;
+
+      let cartData= localStorage.getItem('localCart');
+      if(this.id && cartData){
+        let items = JSON.parse(cartData);
+        items = items.filter((item :Product)=> this.id == item.pro_id)
+        if(items.length){
+          this.removeCart = true
+        }else{
+          this.removeCart = false
+        }
+      }
     })
+
   }
 
   handleQuantity(val:string){
@@ -33,6 +45,22 @@ export class ProductViewComponent {
     }else if(this.productQuantity >1 && val === 'min'){
       this.productQuantity -= 1;
     }
+  }
+
+  addToCart(){
+    if(this.allProduct){
+      this.allProduct.Pro_qnt = this.productQuantity;
+      if(!localStorage.getItem('user')){
+        this.productService.localAddToCart(this.allProduct);
+        this.removeCart = true
+      }
+      
+    }
+  }
+
+  removeToCart(pro_id:number){
+    this.productService.removeItemFromCart(pro_id);
+    this.removeCart = false
   }
 
 }

@@ -21,7 +21,7 @@
                     </div>
                     <small class="pt-1">(99 Reviews)</small>
                 </div>
-                <h3 class="font-weight-semi-bold mb-4">৳ {{allProduct.pro_price}}</h3>
+                <h3 class="font-weight-semi-bold mb-4">Price: ৳ {{allProduct.pro_price}}</h3>
                 <p class="mb-4">{{allProduct.pro_desc}}</p>
                 <div class="d-flex mb-3">
                     <strong class="text-dark mr-3">Sizes:</strong>
@@ -87,7 +87,8 @@
                             </button>
                         </div>
                     </div>
-                    <button class="btn btn-warning px-3" routerLink="/card"><i class="fa fa-shopping-cart mr-1"></i>Add ToCart</button>
+                    <button *ngIf="!removeCart" class="btn btn-warning px-3"(click)="addToCart()"><i class="fa fa-shopping-cart mr-1"></i>Add ToCart</button>
+                    <button *ngIf="removeCart" class="btn btn-warning px-3"(click)="removeToCart(allProduct.pro_id)"><i class="fa fa-shopping-cart mr-1"></i>Remove ToCart</button>
                 </div>
                 <div class="d-flex pt-2">
                     <strong class="text-dark mr-2">Share on:</strong>
