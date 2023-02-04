@@ -14,8 +14,13 @@ export class RegistrationPageComponent {
   ngOnInit(): void {
    
   }
+  // UserCreate(data:SignUp){
+  //   this.signUpService.create(data).subscribe();
+  //   alert("Sign Up completed!!")
+  // }
+
   UserCreate(data:SignUp){
-    this.signUpService.create(data).subscribe();
+    this.signUpService.userSignUp(data);
     alert("Sign Up completed!!")
   }
 }

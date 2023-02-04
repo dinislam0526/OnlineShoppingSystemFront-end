@@ -40,7 +40,17 @@ export class SingUpService {
         this.router.navigate(['/']);
       })
     );
-    
+  }
+
+  userSignUp(user:SignUp){
+    this.http.post("http://localhost:8080/signUp/post",user,{observe:'response'})
+    .subscribe((result)=>{
+      console.warn(result);
+      if(result){
+        localStorage.setItem('user',JSON.stringify(result.body));
+        this.router.navigate(['/']);
+      }
+    })
   }
 
   getAll(): Observable<SignUp[]> {
@@ -54,9 +64,6 @@ export class SingUpService {
       })
     );
   }
-
-  
-
   update(cat: SignUp): Observable<SignUp> {
     return this.http.put<SignUp>(this.dataUrl + '/update', cat, headerOption).pipe(
       tap(() => {

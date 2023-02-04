@@ -42,8 +42,11 @@
           <li class="nav-item">
             <a class="nav-link mx-1 text-uppercase active" aria-current="page" routerLink="/">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase" href="#">Categores</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle mx-1 text-uppercase" data-bs-toggle="dropdown" href="#" aria-expanded="false">Category</a>
+            <ul class="dropdown-menu" >
+                <li><a class="dropdown-item" *ngFor="let c of allCategory">{{c.catname}}</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-1 text-uppercase" href="#">Products</a>
@@ -52,19 +55,27 @@
             <a class="nav-link mx-1 text-uppercase" routerLink="/contact">Contact us</a>
           </li>
         </ul>
-        <ul class="navbar-nav ms-auto ">
+        <div [ngSwitch]="menuType">
+        <ul class="navbar-nav ms-auto" *ngSwitchCase="'default'">
           <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase" routerLink="/card"><i class="fa-solid fa-cart-shopping me-1"></i>Cart ({{cartItems}})</a>
+            <a class="nav-link mx-1 text-uppercase" routerLink="/card"><i class="fa-solid fa-cart-shopping me-1"></i>Cart({{cartItems}})</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle mx-1 text-uppercase" data-bs-toggle="dropdown" href="#" aria-expanded="false"><i class="fa-solid fa-circle-user me-1"></i>Account</a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" routerLink="/login">Sign In</a></li>
-                <li><a class="dropdown-item" routerLink="/registration">Sign Up</a></li>
-                <li><a class="dropdown-item" routerLink="/admin">Log Out</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link mx-1 text-uppercase" routerLink="/registration"><i class="fa-solid fa-user me-1"></i>Login/SignUp</a>
           </li>
         </ul>
+        <ul class="navbar-nav ms-auto" *ngSwitchCase="'user'">
+          <li class="nav-item">
+            <a class="nav-link mx-1 text-uppercase" routerLink="/card"><i class="fa-solid fa-cart-shopping me-1"></i>Cart({{cartItems}})</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-1 text-uppercase" routerLink="/registration"><i class="fa-solid fa-user me-1"></i>{{userName}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-1 text-uppercase" routerLink="/registration"><i class="fa-solid fa-user me-1"></i>Logout</a>
+          </li>
+        </ul>
+      </div>
       </div>
     </div>
   </nav>
