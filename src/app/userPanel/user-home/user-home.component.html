@@ -59,108 +59,15 @@
     <h2>CATEGORIES</h2>
     <mat-divider></mat-divider><br>
     <div class="container row ">
-        <div class="col-md-3">
-            <a class="text-decoration-none" href="..">
+        <div class="col-md-3" *ngFor="let category of allCategory">
+            <a class="text-decoration-none" [routerLink]="['/productCat/',category.catname,'view']">
                 <div class="card shadow" id="cat-card">
                     <div class="hoverImg">
-                        <img src="assets/images/cat-2.jpg" alt="" class="card-img-top">
+                        <img src="{{category.catimage}}" alt="" class="card-img-top">
                     </div>
                     <div class="card-body" id="cat-body">
-                        <h6 class="card-title text-center font-weight-bold">Mobile execories</h6>
-                        <p class="card-text text-center">This phone is exeption</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-3">
-            <a class="text-decoration-none" href="..">
-                <div class="card shadow" id="cat-card">
-                    <div class="hoverImg">
-                        <img src="assets/images/cat-3.jpg" alt="" class="card-img-top">
-                    </div>
-                    <div class="card-body" id="cat-body">
-                        <h6 class="card-title text-center font-weight-bold">Mobile execories</h6>
-                        <p class="card-text text-center">This phone is exeption</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-3">
-            <a class="text-decoration-none" href="..">
-                <div class="card shadow" id="cat-card">
-                    <div class="hoverImg">
-                        <img src="assets/images/cat-4.jpg" alt="" class="card-img-top">
-                    </div>
-                    <div class="card-body" id="cat-body">
-                        <h6 class="card-title text-center font-weight-bold">Mobile execories</h6>
-                        <p class="card-text text-center">This phone is exeption</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-3">
-            <a class="text-decoration-none" href="..">
-                <div class="card shadow" id="cat-card">
-                    <div class="hoverImg">
-                        <img src=" " alt="" class="card-img-top">
-                    </div>
-                    <div class="card-body" id="cat-body">
-                        <h6 class="card-title text-center font-weight-bold">Mobile execories</h6>
-                        <p class="card-text text-center">This phone is exeption</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="container row mt-4">
-        <div class="col-md-3">
-            <a class="text-decoration-none" href="..">
-                <div class="card shadow" id="cat-card">
-                    <div class="hoverImg">
-                        <img src=" " alt="" class="card-img-top">
-                    </div>
-                    <div class="card-body" id="cat-body">
-                        <h6 class="card-title text-center font-weight-bold">Mobile execories</h6>
-                        <p class="card-text text-center">This phone is exeption</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-3">
-            <a class="text-decoration-none" href="..">
-                <div class="card shadow" id="cat-card">
-                    <div class="hoverImg">
-                        <img src=" " alt="" class="card-img-top">
-                    </div>
-                    <div class="card-body" id="cat-body">
-                        <h6 class="card-title text-center font-weight-bold">Mobile execories</h6>
-                        <p class="card-text text-center">This phone is exeption</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-3">
-            <a class="text-decoration-none" href="..">
-                <div class="card shadow" id="cat-card">
-                    <div class="hoverImg">
-                        <img src="" alt="" class="card-img-top">
-                    </div>
-                    <div class="card-body" id="cat-body">
-                        <h6 class="card-title text-center font-weight-bold">Mobile execories</h6>
-                        <p class="card-text text-center">This phone is exeption</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-3">
-            <a class="text-decoration-none" href="..">
-                <div class="card shadow" id="cat-card">
-                    <div class="hoverImg">
-                        <img src="" alt="" class="card-img-top">
-                    </div>
-                    <div class="card-body" id="cat-body">
-                        <h6 class="card-title text-center font-weight-bold">Mobile execories</h6>
-                        <p class="card-text text-center">This phone is exeption</p>
+                        <h3 class="card-title text-center font-weight-bold">{{category.catname}}</h3>
+                        <p class="card-text">{{category.catdesc}}</p>
                     </div>
                 </div>
             </a>

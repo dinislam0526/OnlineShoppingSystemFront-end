@@ -8,6 +8,7 @@ import { AddvendorComponent } from './adminPanel/components/addvendor/addvendor.
 import { CreatepurchaseComponent } from './adminPanel/components/createpurchase/createpurchase.component';
 import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { CardComponent } from './userPanel/card/card.component';
+import { CategoryWiseProductViewComponent } from './userPanel/category-wise-product-view/category-wise-product-view.component';
 import { CheckoutComponent } from './userPanel/checkout/checkout.component';
 import { ContactComponent } from './userPanel/contact/contact.component';
 import { FontPageComponent } from './userPanel/font-page/font-page.component';
@@ -32,6 +33,8 @@ const routes: Routes = [
   { path: 'paymentmethod', component: PaymentmethodComponent },
   { path: 'product/:proid/view', component: ProductViewComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'productCat/:pro_cat/view', component: CategoryWiseProductViewComponent },
+  
   
 
 

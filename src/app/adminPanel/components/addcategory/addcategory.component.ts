@@ -10,7 +10,7 @@ import { CategoryserviceService } from '../../services/categoryServices/category
   styleUrls: ['./addcategory.component.css']
 })
 export class AddcategoryComponent implements OnInit {
-  displayedColumns: string[] = ['Category ID', 'Category Name', 'Category Description', 'Actions'];
+  displayedColumns: string[] = ['Category ID', 'Category Name','Category Images', 'Category Description', 'Actions'];
   dataSource!: MatTableDataSource<Category>;
   @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
   msg="";
@@ -72,7 +72,8 @@ export class AddcategoryComponent implements OnInit {
     this.categoryService.currentCategory = {
       catid: null,
       catname: '',
-      catdesc: ''
+      catdesc: '',
+      catimage:''
     };
     this.msg="";
   }

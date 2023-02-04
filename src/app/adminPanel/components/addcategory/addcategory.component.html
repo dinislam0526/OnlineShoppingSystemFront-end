@@ -18,10 +18,20 @@
         </mat-form-field>
       </div>
     </div>
-    <mat-form-field appearance="outline">
-      <mat-label>Category Description</mat-label>
-      <input matInput placeholder="Write category description" type="text" [(ngModel)]="categoryService.currentCategory.catdesc">
-    </mat-form-field>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Category Image</mat-label>
+          <input matInput placeholder="Write a new category image" type="text" [(ngModel)]="categoryService.currentCategory.catimage">
+        </mat-form-field>
+      </div>
+      <div class="col-md-8">
+        <mat-form-field appearance="outline">
+          <mat-label>Category Description</mat-label>
+          <input matInput placeholder="Write a new category description" type="text" [(ngModel)]="categoryService.currentCategory.catdesc">
+        </mat-form-field>
+      </div>
+    </div>
   <button class="btn btn-success" (click)="createOrUpdateCategory(categoryService.currentCategory)"> <i class="fa fa-save"></i>Save</button>
   <button class="btn btn-primary" (click)="clear()"> <i class="fa fa-retweet"></i> Clear</button>
     <font color="green" size="10px">{{msg}}</font>
@@ -55,6 +65,11 @@
           <ng-container matColumnDef="Category Description">
             <th mat-header-cell *matHeaderCellDef> Category Description </th>
             <td mat-cell *matCellDef="let cat"> {{cat.catdesc}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Category Images">
+            <th mat-header-cell *matHeaderCellDef> Category Images </th>
+            <td mat-cell *matCellDef="let cat"> {{cat.catimage}} </td>
           </ng-container>
   
           <ng-container matColumnDef="Actions">

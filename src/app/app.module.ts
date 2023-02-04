@@ -19,6 +19,7 @@ import { PaymentmethodComponent } from './userPanel/paymentmethod/paymentmethod.
 import { ProductViewComponent } from './userPanel/product-view/product-view.component';
 import { ContactComponent } from './userPanel/contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoryWiseProductViewComponent } from './userPanel/category-wise-product-view/category-wise-product-view.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     CheckoutComponent,
     PaymentmethodComponent,
     ProductViewComponent,
-    ContactComponent
+    ContactComponent,
+    CategoryWiseProductViewComponent
   ],
   imports: [
     BrowserModule,

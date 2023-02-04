@@ -1,0 +1,27 @@
+<app-user-header></app-user-header>
+<div class="container">
+    <h2>RECENT PRODUCTS</h2>
+    <mat-divider></mat-divider><br>
+    <div class="container row">
+        <div class="col-md-4 mb-4" *ngFor = "let product of categoryWiseProduct">
+            <div class="card shadow">
+                <div class="hoverImg">
+                    <img src="{{product.pro_image}}" alt="" class="card-img-top">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-center font-weight-bold">{{product.pro_name}}</h3>
+                    <p class="text-center">{{product.pro_desc}}</p>
+                    <h2 class="text-center text-danger">৳ {{product.pro_price}}</h2>
+                    <div class="text-center">
+                        <button href="" class="btn-card"> ADD TO CART</button>
+                        <button href="" class="btn-view" [routerLink]="['/product/',product.pro_id,'view']">VIEW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br><br>
+
+
+
+<app-user-footer></app-user-footer>
