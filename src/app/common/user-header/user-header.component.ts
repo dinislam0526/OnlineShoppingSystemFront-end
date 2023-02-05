@@ -26,11 +26,11 @@ export class UserHeaderComponent {
     let cartData =localStorage.getItem('localCart');
     if(cartData){
       this.cartItems = JSON.parse(cartData).length
-    }
+    };
 
     this.productService.cartData1.subscribe((items)=>{
       this.cartItems = items.length;
-    })
+    });
 
     this.route.events.subscribe((val:any)=> {
       console.warn(val.url)
