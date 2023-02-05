@@ -35,7 +35,7 @@ export class ProductViewComponent {
           this.removeCart = false
         }
       }
-    })
+    });
 
   }
 

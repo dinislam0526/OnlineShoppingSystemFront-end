@@ -61,3 +61,6 @@ body {
   -ms-transform: scale(.95);
   z-index: -1;
 }
+a{
+  text-decoration: none;
+}

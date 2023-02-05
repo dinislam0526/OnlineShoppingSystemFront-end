@@ -45,11 +45,11 @@ export class ProductService {
   getAllProduct(): Observable<Product[]> {
     return this.http.get<Product[]>(this.dataUrl+'/getAll', headerOption);
   }
-
+//get category wise product
   getCategoryWiseProduct(catname:string): Observable<Product[]> {
     return this.http.get<Product[]>(this.dataUrl+'/getCategoryWiseProduct?catName='+catname, headerOption);
   }
-
+//get all product id
   getById(pid: number): Observable<Product> {
     return this.http.get<Product>(this.dataUrl + '/getById/' + pid, headerOption).pipe(
       tap(() => {
@@ -61,7 +61,7 @@ export class ProductService {
   getAllProductAndCategory():Observable<Object[]>{
     return this.http.get<Object[]>(this.dataUrl, headerOption);
   }
-
+//get All Category Name
   getAllCategoryName(): Observable<Category[]> {
     return this.http.get<Category[]>(this.dataUrl2+'/catnamelist', headerOption);
   }
@@ -90,6 +90,7 @@ export class ProductService {
     );
   }
 
+  // localStorege add to cart
   localAddToCart(data:Product){
     let cartData = [];
     let localCart = localStorage.getItem('localCart');
@@ -102,7 +103,7 @@ export class ProductService {
     }
     this.cartData1.emit(cartData);
   }
-  
+  //prodcut remove from localStorage
   removeItemFromCart(productId:Number){
     let cartData=localStorage.getItem('localCart');
     if(cartData){
