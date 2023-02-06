@@ -12,9 +12,9 @@ export class UserHeaderComponent {
 
   allCategory!:Category[];
   cartItems = 0;
+  menuType: string = 'default';
+  sellerName:string="";
   userName:string="";
-  menuType:string='default';
-
   constructor(
     public productService:ProductService,
     private route:Router
@@ -32,21 +32,26 @@ export class UserHeaderComponent {
       this.cartItems = items.length;
     });
 
-    this.route.events.subscribe((val:any)=> {
-      console.warn(val.url)
-      if(val.url){
-        if(localStorage.getItem('user')){
+    this.route.events.subscribe((val: any) => {
+      if (val.url) {
+        if (localStorage.getItem('seller') && val.url.includes('seller')) {
+         let sellerStore=localStorage.getItem('seller');
+         let sellerData =sellerStore && JSON.parse(sellerStore)[0];
+         this.sellerName=sellerData.name;
+          this.menuType = 'seller';
+        }
+        else if(localStorage.getItem('user')){
           let userStore = localStorage.getItem('user');
           let userData = userStore && JSON.parse(userStore);
-          this.userName = userData.username;
+          this.userName= userData.username;
           this.menuType='user';
-
-        }else{
-          this.menuType='default';
+          
+        }
+         else {
+          this.menuType = 'default';
         }
       }
-    })
-
+    });
     
   }
 
