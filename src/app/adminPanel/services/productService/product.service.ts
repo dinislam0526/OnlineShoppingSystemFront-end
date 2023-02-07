@@ -61,7 +61,7 @@ export class ProductService {
   getAllProductAndCategory():Observable<Object[]>{
     return this.http.get<Object[]>(this.dataUrl, headerOption);
   }
-//get All Category Name
+  // get All Category Name
   getAllCategoryName(): Observable<Category[]> {
     return this.http.get<Category[]>(this.dataUrl2+'/catnamelist', headerOption);
   }
