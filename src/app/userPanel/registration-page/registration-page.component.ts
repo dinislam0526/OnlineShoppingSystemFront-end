@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Login } from 'src/app/adminPanel/models/login.model';
 import { SignUp } from 'src/app/adminPanel/models/SignUp.model';
-import { SingUpService } from 'src/app/adminPanel/services/signUpService/sing-up.service';
+
 
 @Component({
   selector: 'app-registration-page',
   templateUrl: './registration-page.component.html',
   styleUrls: ['./registration-page.component.css']
 })
-export class RegistrationPageComponent {
-  
-  constructor(public signUpService:SingUpService){}
+export class RegistrationPageComponent implements OnInit{
+   showLogin:boolean= true;
+  constructor( ){}
   
   ngOnInit(): void {
    
@@ -20,7 +21,20 @@ export class RegistrationPageComponent {
   // }
 
   UserCreate(data:SignUp){
-    this.signUpService.userSignUp(data);
+   
     alert("Sign Up completed!!")
   }
+
+  login(data:Login){
+    console.warn(data)
+  }
+
+  openSignUp(){
+    this.showLogin = false;
+  }
+  
+  openLogin(){
+    this.showLogin = true;
+  }
+
 }

@@ -7,7 +7,7 @@
       <mat-card-header>
         <mat-card-title>Sign Up</mat-card-title>
       </mat-card-header>
-      <form class="example-form" #userSignUp="ngForm" (ngSubmit)="UserCreate(userSignUp.value)">
+      <form class="example-form" #userSignUp="ngForm" (ngSubmit)="signUp(userSignUp.value)">
         <mat-card-content>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Username" type="text" name="username"  ngModel >

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/adminPanel/models/Category.model';
 import { ProductService } from 'src/app/adminPanel/services/productService/product.service';
@@ -8,7 +8,7 @@ import { ProductService } from 'src/app/adminPanel/services/productService/produ
   templateUrl: './user-header.component.html',
   styleUrls: ['./user-header.component.css']
 })
-export class UserHeaderComponent {
+export class UserHeaderComponent implements OnInit{
 
   allCategory!:Category[];
   cartItems = 0;
@@ -56,14 +56,9 @@ export class UserHeaderComponent {
     );
   }
 
-  logout(){
-    localStorage.removeItem('seller');
-    this.route.navigate(['/'])
-  }
-
   userLogout(){
     localStorage.removeItem('user');
-    this.route.navigate(['/user-auth'])
+    this.route.navigate(['/UserAuth'])
     // this.productService.cartData.emit([])
   }
 

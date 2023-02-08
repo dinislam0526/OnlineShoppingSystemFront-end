@@ -20,6 +20,7 @@ import { ProductViewComponent } from './userPanel/product-view/product-view.comp
 import { ContactComponent } from './userPanel/contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryWiseProductViewComponent } from './userPanel/category-wise-product-view/category-wise-product-view.component';
+import { UserAuthComponent } from './userPanel/user-auth/user-auth.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CategoryWiseProductViewComponent } from './userPanel/category-wise-prod
     PaymentmethodComponent,
     ProductViewComponent,
     ContactComponent,
-    CategoryWiseProductViewComponent
+    CategoryWiseProductViewComponent,
+    UserAuthComponent
   ],
   imports: [
     BrowserModule,

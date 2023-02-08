@@ -15,7 +15,7 @@ import { FontPageComponent } from './userPanel/font-page/font-page.component';
 import { LoginPageComponent } from './userPanel/login-page/login-page.component';
 import { PaymentmethodComponent } from './userPanel/paymentmethod/paymentmethod.component';
 import { ProductViewComponent } from './userPanel/product-view/product-view.component';
-import { RegistrationPageComponent } from './userPanel/registration-page/registration-page.component';
+import { UserAuthComponent } from './userPanel/user-auth/user-auth.component';
 import { UserHomeComponent } from './userPanel/user-home/user-home.component';
 
 const routes: Routes = [
@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'userHome', component: UserHomeComponent },
   { path: 'FontPageComponent', component: FontPageComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'registration', component: RegistrationPageComponent },
+  { path: 'UserAuth', component: UserAuthComponent },
   { path: 'adminHome', component: AdminHomeComponent },
   { path: 'card', component: CardComponent },
   { path: 'product/:proid/card', component: CardComponent },
