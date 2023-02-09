@@ -24,10 +24,12 @@ invalidUserAuth= new EventEmitter<boolean>(false)
    })
     
   }
+  
   userLogin(data:Login){
     this.http.get<SignUp[]>(`http://localhost:8080/signUp/getUser?username=${data.username}&password=${data.password}`,
     {observe:'response'}
     ).subscribe((result)=>{
+
       if(result && result.body?.length){
         localStorage.setItem('user',JSON.stringify(result.body[0]));
         this.router.navigate(['/']);
