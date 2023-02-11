@@ -30,8 +30,8 @@ invalidUserAuth= new EventEmitter<boolean>(false)
     {observe:'response'}
     ).subscribe((result)=>{
 
-      if(result && result.body?.length){
-        localStorage.setItem('user',JSON.stringify(result.body[0]));
+      if(result){
+        localStorage.setItem('user',JSON.stringify(result.body));
         this.router.navigate(['/']);
         this.invalidUserAuth.emit(false)
       }else{

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from 'src/app/adminPanel/models/Cart.model';
 import { Login } from 'src/app/adminPanel/models/login.model';
+import { Product } from 'src/app/adminPanel/models/product.mode';
 import { SignUp } from 'src/app/adminPanel/models/SignUp.model';
+import { CartService } from 'src/app/adminPanel/services/cartService/cart.service';
 import { ProductService } from 'src/app/adminPanel/services/productService/product.service';
 import { UserService } from 'src/app/adminPanel/services/userAuthService/user.service';
 
@@ -10,9 +13,9 @@ import { UserService } from 'src/app/adminPanel/services/userAuthService/user.se
   styleUrls: ['./user-auth.component.css'],
 })
 export class UserAuthComponent implements OnInit {
-  showLogin:boolean=true
-  authError:string="";
-  constructor(private user: UserService, private productService:ProductService) {}
+  showLogin: boolean = true
+  authError: string = "";
+  constructor(private user: UserService, private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.user.userAuthReload();
@@ -23,53 +26,54 @@ export class UserAuthComponent implements OnInit {
   }
   login(data: Login) {
     this.user.userLogin(data)
-    this.user.invalidUserAuth.subscribe((result)=>{
+    this.user.invalidUserAuth.subscribe((result) => {
       console.warn(result);
-      if(result){
-         this.authError="User not found"
-      }else{
-        // this.localCartToRemoteCart();
+      if (result) {
+        this.authError = "User not found"
+      } else {
+        this.localCartToRemoteCart();
       }
-      
+
     })
   }
-  openSignUp(){
-    this.showLogin=false
+  openSignUp() {
+    this.showLogin = false
   }
-  openLogin(){
-    this.showLogin=true;
+  openLogin() {
+    this.showLogin = true;
   }
 
-  // localCartToRemoteCart(){
-  //  let data = localStorage.getItem('localCart');
-  //  let user = localStorage.getItem('user');
-  //  let userId= user && JSON.parse(user).id;
-  //  if(data){
-  //   let cartDataList:Product[]= JSON.parse(data);
-  
-  //   cartDataList.forEach((product:Product, index)=>{
-  //     let cartData:cart={
-  //       ...product,
-  //       productId:product.id,
-  //       userId
-  //     }
-  //     delete cartData.id;
-  //     setTimeout(() => {
-  //       this.product.addToCart(cartData).subscribe((result)=>{
-  //         if(result){
-  //           console.warn("data is stored in DB");
-  //         }
-  //       })
-  //     }, 500);
-  //     if(cartDataList.length===index+1){
-  //       localStorage.removeItem('localCart')
-  //     }
-  //   })
-  //  }
+  localCartToRemoteCart() {
+    let data = localStorage.getItem('localCart');
+    let user = localStorage.getItem('user');
+    let userId = user && JSON.parse(user).id;
+    if (data) {
+      let cartDataList: Product[] = JSON.parse(data);
 
-  //  setTimeout(() => {
-  //   this.product.getCartList(userId)
-  //  }, 2000);
-    
-  // }
+      cartDataList.forEach((product: Product, index) => {
+        let cartData: Cart = {
+          ...product,
+          cart_id: undefined,
+          userId
+        }
+        setTimeout(() => {
+          this.cartService.addToCart(cartData).subscribe((result) => {
+            if (result) {
+              console.warn("data is stored in DB");
+            }
+          })
+        }, 500);
+        if (cartDataList.length === index + 1) {
+          localStorage.removeItem('localCart')
+        }
+      })
+    }
+
+    setTimeout(() => {
+      this.cartService.getCartList(userId)
+    }, 2000);
+
+
+  }
+
 }

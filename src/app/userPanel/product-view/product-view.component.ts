@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Cart } from 'src/app/adminPanel/models/Cart.model';
 import { Product } from 'src/app/adminPanel/models/product.mode';
+import { CartService } from 'src/app/adminPanel/services/cartService/cart.service';
 import { ProductService } from 'src/app/adminPanel/services/productService/product.service';
 
 @Component({
@@ -17,7 +19,8 @@ export class ProductViewComponent {
 
   constructor(
     public productService: ProductService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    public cartService:CartService 
   ) { }
 
   ngOnInit(): void {
@@ -49,10 +52,29 @@ export class ProductViewComponent {
 
   addToCart(){
     if(this.allProduct){
-      this.allProduct.Pro_qnt = this.productQuantity;
+      this.allProduct.pro_qnt = this.productQuantity;
       if(!localStorage.getItem('user')){
         this.productService.localAddToCart(this.allProduct);
         this.removeCart = true
+      }else{
+        let user = localStorage.getItem('user');
+        let userId = user && JSON.parse(user).id
+        let cartData : Cart ={
+          ...this.allProduct,
+          userId,
+          cart_id: undefined,
+          
+        }
+        console.warn(cartData);
+        
+        this.cartService.addToCart(cartData).subscribe((result)=>{
+          if(result){
+           alert("the cart is complete")
+          }
+        });     
+     
+
+        
       }
       
     }

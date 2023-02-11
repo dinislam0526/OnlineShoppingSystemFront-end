@@ -1,5 +1,6 @@
-export class Product{
-    pro_id!: number;
+export class Cart{
+    cart_id:number | undefined;
+    userId!:number;
     catid!:any;
     pro_name!:string;
     pro_cat!:string;
