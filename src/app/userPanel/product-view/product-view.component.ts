@@ -13,7 +13,7 @@ import { ProductService } from 'src/app/adminPanel/services/productService/produ
 export class ProductViewComponent {
 
   id!:number;
-  allProduct!: Product;
+  allProduct: Product = new Product;
   productQuantity:number=1;
   removeCart = false;
 

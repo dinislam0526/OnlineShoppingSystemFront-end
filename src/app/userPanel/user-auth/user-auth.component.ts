@@ -34,8 +34,8 @@ export class UserAuthComponent implements OnInit {
         this.localCartToRemoteCart();
       }
 
-    })
-  }
+    });
+  };
   openSignUp() {
     this.showLogin = false
   }

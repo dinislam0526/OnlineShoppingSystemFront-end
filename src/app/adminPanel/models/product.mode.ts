@@ -8,4 +8,5 @@ export class Product{
     pro_desc!:string;
     pro_qnt: undefined |number;
 
+    
 }
