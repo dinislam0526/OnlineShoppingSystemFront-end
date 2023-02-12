@@ -19,15 +19,15 @@ export class UserAuthComponent implements OnInit {
 
   ngOnInit(): void {
     this.user.userAuthReload();
-  }
+  };
 
   signUp(data: SignUp) {
     this.user.userSignUp(data);
-  }
+  };
+
   login(data: Login) {
     this.user.userLogin(data)
     this.user.invalidUserAuth.subscribe((result) => {
-      console.warn(result);
       if (result) {
         this.authError = "User not found"
       } else {
@@ -36,12 +36,14 @@ export class UserAuthComponent implements OnInit {
 
     });
   };
+
   openSignUp() {
     this.showLogin = false
-  }
+  };
+
   openLogin() {
     this.showLogin = true;
-  }
+  };
 
   localCartToRemoteCart() {
     let data = localStorage.getItem('localCart');

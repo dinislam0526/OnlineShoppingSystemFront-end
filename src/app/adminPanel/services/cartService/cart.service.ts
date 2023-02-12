@@ -21,10 +21,16 @@ export class CartService {
         observe: 'response',
       })
       .subscribe((result) => {
-        if (result && result.body) {
+                if (result && result.body) {
           this.cartData.emit(result.body);
         }
       });
+  }
+
+  removeToCart(cartId:number){
+    console.warn("hit to removeCart",cartId);
+    
+    this.http.delete('http://localhost:8080/cart/delete/'+ cartId);
   }
 
 }

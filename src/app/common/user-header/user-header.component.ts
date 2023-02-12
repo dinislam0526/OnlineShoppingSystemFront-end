@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/adminPanel/models/Category.model';
+import { CartService } from 'src/app/adminPanel/services/cartService/cart.service';
 import { ProductService } from 'src/app/adminPanel/services/productService/product.service';
 
 @Component({
@@ -17,6 +18,8 @@ export class UserHeaderComponent implements OnInit {
   userName: string = "";
   constructor(
     public productService: ProductService,
+    public cartService: CartService,
+    
     private route: Router
   ) { }
 
@@ -31,6 +34,10 @@ export class UserHeaderComponent implements OnInit {
     };
 
     this.productService.cartData1.subscribe((items) => {
+      this.cartItems = items.length;
+    });
+
+    this.cartService.cartData.subscribe((items) => {
       this.cartItems = items.length;
     });
 
@@ -61,13 +68,10 @@ export class UserHeaderComponent implements OnInit {
   getLogin() {
     if (localStorage.getItem('user')) {
       let userStore = localStorage.getItem('user');
-      console.warn('userStore---userStore--', userStore);
-
       let userData = userStore && JSON.parse(userStore);
       this.userName = userData.username;
-      console.warn('userName-----', this.userName);
       this.test = true;
-
+      this.cartService.getCartList(userData.id);
     }
     else {
 
@@ -85,7 +89,7 @@ export class UserHeaderComponent implements OnInit {
   userLogout() {
     localStorage.removeItem('user');
     this.route.navigate(['/UserAuth'])
-    this.productService.cartData1.emit([])
+    this.productService.cartData1.emit([]);
   }
 
   searchProduct(query: KeyboardEvent) {

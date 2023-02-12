@@ -96,13 +96,16 @@ export class ProductService {
     let localCart = localStorage.getItem('localCart');
     if(!localCart){
       localStorage.setItem('localCart',JSON.stringify([data]));
+      this.cartData1.emit([data]);
     }else{
       cartData = JSON.parse(localCart);
       cartData.push(data);
       localStorage.setItem('localCart',JSON.stringify(cartData));
+      this.cartData1.emit(cartData);
+
     }
-    this.cartData1.emit(cartData);
   }
+  
   //prodcut remove from localStorage
   removeItemFromCart(productId:Number){
     let cartData=localStorage.getItem('localCart');
