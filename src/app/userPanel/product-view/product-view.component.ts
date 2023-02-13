@@ -16,7 +16,7 @@ export class ProductViewComponent {
   allProduct: Product = new Product;
   productQuantity:number=1;
   removeCart = false;
-  cartData:Product | undefined;
+  cartData!:Product ;
   constructor(
     public productService: ProductService,
     private route:ActivatedRoute,
@@ -50,11 +50,8 @@ export class ProductViewComponent {
             this.cartData = item[0];
             this.removeCart = true;
           }
-
         })
       }
-
-
     });
 
   }
@@ -104,16 +101,18 @@ export class ProductViewComponent {
       this.removeCart = false;
     }else{
       console.warn(this.cartData);
-      
-    //  this.cartService.removeToCart(this.cartData?.cart_id)
-      // .subscribe((result)=>{
-      //   let user = localStorage.getItem('user');
-      //   let userId= user && JSON.parse(user).id;
-      //   this.cartService.getCartList(userId)
-      // })
+
+     this.cartService.removeToCart(this.cartData.cart_id)
+      .subscribe((result)=>{
+        let user = localStorage.getItem('user');
+        let userId= user && JSON.parse(user).id;
+        this.cartService.getCartList(userId)
+      })
     }
     this.removeCart=false
-   
   }
+
+
+
 
 }

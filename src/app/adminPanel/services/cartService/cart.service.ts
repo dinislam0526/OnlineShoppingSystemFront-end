@@ -1,8 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, Subject, tap } from 'rxjs';
 import { Cart } from '../../models/Cart.model';
 import { Product } from '../../models/product.mode';
+
+const headerOption = {
+  headers: new HttpHeaders({
+    'content-type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +17,12 @@ import { Product } from '../../models/product.mode';
 export class CartService {
   cartData = new EventEmitter<Product[] | []>();
   constructor(private http: HttpClient, private router:Router) { }
+
+  private refreshNeeded = new Subject<void>();
+
+  get refreshNeed() {
+    return this.refreshNeeded;
+  }
 
   addToCart(cartData: Cart) {
     return this.http.post('http://localhost:8080/cart/post', cartData);
@@ -27,10 +40,20 @@ export class CartService {
       });
   }
 
-  removeToCart(cartId:number){
-    console.warn("hit to removeCart",cartId);
-    
-    this.http.delete('http://localhost:8080/cart/delete/'+ cartId);
+  // removeToCart(cartId:number){
+  //   console.warn("hit to removeCart/"+cartId)
+  //   return this.http.delete('http://localhost:8080/cart/delete/' + cartId);
+  // }
+
+  removeToCart(cartId:number): Observable<Cart> {
+    console.warn("hit to removeCart/"+cartId)
+    return this.http.delete<Cart>('http://localhost:8080/cart/delete/' + cartId, headerOption).pipe(
+      tap(() => {
+        this.refreshNeeded.next();
+      })
+    )
   }
+
+
 
 }

@@ -7,6 +7,6 @@ export class Product{
     pro_price!:number;
     pro_desc!:string;
     pro_qnt: undefined |number;
-    
+    cart_id!:number;
     
 }
