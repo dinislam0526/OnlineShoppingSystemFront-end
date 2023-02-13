@@ -2,6 +2,9 @@
 <!-- Cart Start -->
 <div class="container-fluid">
     <div class="row px-xl-5">
+        <h1 class="align-middle">
+            Cart Page
+        </h1>
         <div class="col-lg-8 table-responsive mb-5">
             <table class="table table-light table-borderless table-hover text-center mb-0">
                 <thead class="table-success">
@@ -9,114 +12,14 @@
                         <th>Products</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Total</th>
                         <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody class="align-middle">
-                    <tr>
-                        <td class="align-middle"><img src=" " alt="" style="width: 50px;"> Product Name</td>
-                        <td class="align-middle">tk.150</td>
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn btn-warning btn-minus" >
-                                    <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control form-control-sm bg-light border-0 text-center" value="1">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn btn-warning btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">tk.150</td>
-                        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle"><img src=" " alt="" style="width: 50px;"> Product Name</td>
-                        <td class="align-middle">tk.150</td>
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-warning btn-minus" >
-                                    <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control form-control-sm bg-light border-0 text-center" value="1">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-warning btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">tk.150</td>
-                        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle"><img src=" " alt="" style="width: 50px;"> Product Name</td>
-                        <td class="align-middle">tk.150</td>
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-warning btn-minus" >
-                                    <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control form-control-sm bg-light border-0 text-center" value="1">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-warning btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">tk.150</td>
-                        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle"><img src=" " alt="" style="width: 50px;"> Product Name</td>
-                        <td class="align-middle">tk.150</td>
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-warning btn-minus" >
-                                    <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control form-control-sm bg-light border-0 text-center" value="1">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-warning btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">tk.150</td>
-                        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle"><img src=" " alt="" style="width: 50px;"> Product Name</td>
-                        <td class="align-middle">tk.150</td>
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-warning btn-minus" >
-                                    <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control form-control-sm bg-light border-0 text-center" value="1">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-warning btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">tk.150</td>
+                    <tr *ngFor="let cart of cartData">
+                        <td class="align-middle"><img src="{{cart.pro_image}} " alt="" style=" height: 100px;"> {{cart.pro_name}}</td>
+                        <td class="align-middle">৳ {{cart.pro_price}}</td>
+                        <td class="align-middle">{{cart.pro_qnt}}</td>   
                         <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
                     </tr>
                 </tbody>
@@ -125,7 +28,7 @@
         <div class="col-lg-4">
             <form class="mb-30" action="">
                 <div class="input-group">
-                    <input type="text" class="form-control border-0 p-4" placeholder="Coupon Code">
+                    <input type="text" class="form-control border-0 p-2" placeholder="Coupon Code">
                     <div class="input-group-append">
                         <button class="btn btn-primary">Apply Coupon</button>
                     </div>
@@ -135,18 +38,26 @@
             <div class="bg-light p-30 mb-5">
                 <div class="border-bottom pb-2">
                     <div class="d-flex justify-content-between mb-3">
-                        <h3>Subtotal</h3>
-                        <h3>tk.150</h3>
+                        <h3>Amount</h3>
+                        <h3>{{priceSummery.price}}</h3>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <h3 class="font-weight-medium">Shipping</h3>
-                        <h3 class="font-weight-medium">tk.150</h3>
+                        <h3 class="font-weight-medium">Discount</h3>
+                        <h3 class="font-weight-medium">{{priceSummery.discount}}</h3>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h3 class="font-weight-medium">Text</h3>
+                        <h3 class="font-weight-medium">{{priceSummery.tax}}</h3>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h3 class="font-weight-medium">Delivery</h3>
+                        <h3 class="font-weight-medium">{{priceSummery.delivery}}</h3>
                     </div>
                 </div>
                 <div class="pt-2">
                     <div class="d-flex justify-content-between mt-2">
                         <h2>Total</h2>
-                        <h2>tk.150</h2>
+                        <h2>{{priceSummery.total}}</h2>
                     </div>
                     <button class="btn btn-block btn-primary font-weight-bold my-3 py-3" routerLink="../checkout">Proceed To Checkout</button>
                 </div>
@@ -155,4 +66,49 @@
     </div>
 </div>
 <!-- Cart End -->
+
+
+<!-- <div class="cart-page">
+    <h1>
+        Cart Page
+    </h1>
+    <div class="row">
+        <div class="col-sm-8 details">
+            <ul *ngFor="let cart of cartData">
+                <li>
+                    <img src="{{cart.pro_image}}" alt="">
+                </li>
+                <li>
+                    <span>{{cart.pro_name}} </span>
+                </li>
+                <li>
+                    <span> Price : {{cart.pro_price}}</span>
+                </li>
+                <li>
+                    <span> Quantity :{{cart.pro_qnt}} </span>
+                </li>
+                <li>
+                    <button class="form-button" >Remove To Cart</button>
+                </li>
+            </ul>
+
+        </div>
+        <div class="col-sm-4 summary">
+            <h3>Summary</h3>
+            <ul>
+                <li> <span>Amount:</span><span></span></li>
+                <li> <span>Tax:</span><span></span></li>
+                <li> <span>Delivery:</span><span></span></li>
+                <li> <span>Discount:</span><span></span></li>
+                <li> <span>
+                        <h4>Total</h4>
+                    </span> <span>
+                        <h4></h4>
+                    </span></li>
+                <button class="form-button max-width">Checkout</button>
+            </ul>
+        </div>
+    </div>
+</div> -->
+
 <app-user-footer></app-user-footer>

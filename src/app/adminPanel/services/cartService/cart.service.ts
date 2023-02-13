@@ -54,6 +54,11 @@ export class CartService {
     )
   }
 
+  currentCart(){
+    let userStore= localStorage.getItem('user');
+    let userData = userStore && JSON.parse(userStore);
+    return this.http.get<Cart[]>('http://localhost:8080/cart/getCartList?userId=' + userData.id)
+  }
 
 
 }
