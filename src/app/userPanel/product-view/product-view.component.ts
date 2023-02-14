@@ -79,7 +79,6 @@ export class ProductViewComponent {
           cart_id: undefined,
 
         }
-        console.warn(cartData);
 
         this.cartService.addToCart(cartData).subscribe((result) => {
           if (result) {

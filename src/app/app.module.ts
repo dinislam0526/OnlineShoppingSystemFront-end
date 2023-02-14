@@ -21,6 +21,7 @@ import { ContactComponent } from './userPanel/contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryWiseProductViewComponent } from './userPanel/category-wise-product-view/category-wise-product-view.component';
 import { UserAuthComponent } from './userPanel/user-auth/user-auth.component';
+import { MyOrderComponent } from './userPanel/my-order/my-order.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UserAuthComponent } from './userPanel/user-auth/user-auth.component';
     ProductViewComponent,
     ContactComponent,
     CategoryWiseProductViewComponent,
-    UserAuthComponent
+    UserAuthComponent,
+    MyOrderComponent
   ],
   imports: [
     BrowserModule,

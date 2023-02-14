@@ -13,6 +13,7 @@ import { CheckoutComponent } from './userPanel/checkout/checkout.component';
 import { ContactComponent } from './userPanel/contact/contact.component';
 import { FontPageComponent } from './userPanel/font-page/font-page.component';
 import { LoginPageComponent } from './userPanel/login-page/login-page.component';
+import { MyOrderComponent } from './userPanel/my-order/my-order.component';
 import { PaymentmethodComponent } from './userPanel/paymentmethod/paymentmethod.component';
 import { ProductViewComponent } from './userPanel/product-view/product-view.component';
 import { UserAuthComponent } from './userPanel/user-auth/user-auth.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'paymentmethod', component: PaymentmethodComponent },
   { path: 'product/:proid/view', component: ProductViewComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'myOrder', component: MyOrderComponent },
   { path: 'productCat/:pro_cat/view', component: CategoryWiseProductViewComponent },
   
   

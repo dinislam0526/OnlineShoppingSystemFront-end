@@ -1,0 +1,32 @@
+<app-user-header></app-user-header>
+
+<div class="container">
+    <h1 class="align-middle">
+        My Orders
+    </h1>
+    <div class="col-lg-12 table-responsive mb-5">
+        <table class="table table-light table-borderless table-hover text-center mb-0">
+            <thead class="table-success">
+                <tr>
+                    <th>Order</th>
+                    <th>Order Id</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Cancel Order</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle">
+                <tr *ngFor="let data of orderData">
+                    <td class="align-middle"><img src="" alt="" style=" height: 100px;"> </td>
+                    <td class="align-middle"># {{data.orderId}} </td>
+                    <td class="align-middle">৳ {{data.totalPrice}}</td>
+                    <td class="align-middle">In progress</td>
+                    <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-user-footer> </app-user-footer>
