@@ -87,6 +87,18 @@
     <mat-icon>assignment</mat-icon>Reports
   </h2>
 
+  <!-- Order Report start -->
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>done_all</mat-icon><b>Order Report</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/orderDetails">Order Details</a>
+  </mat-expansion-panel>
+  <!-- Order Report end -->
+
   <!-- purchase report start -->
   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
@@ -116,18 +128,6 @@
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/saleperid">Sale Per ID</a>
   </mat-expansion-panel>
   <!-- sales report start -->
-
-  <!-- Order Report start -->
-  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <mat-icon>done_all</mat-icon><b>Order Report</b>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-divider></mat-divider>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/orderDetails">Order Details</a>
-  </mat-expansion-panel>
-  <!-- Order Report end -->
 
   <!-- Income and Expense Report start -->
   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">

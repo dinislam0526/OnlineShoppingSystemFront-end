@@ -20,5 +20,15 @@ export class OrderService {
  
   }
 
+  getAllOrderList() {
+    return this.http.get<Order[]>('http://localhost:8080/order/getAllOrderList')
+ 
+  }
+
+  updateStatus(id:number){
+    return this.http.post('http://localhost:8080/order/updateStatus?orderId=' + id,{
+      observe: 'response'
+    });
+  }
 
 }

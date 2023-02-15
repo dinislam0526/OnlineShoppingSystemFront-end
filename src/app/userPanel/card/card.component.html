@@ -20,7 +20,7 @@
                         <td class="align-middle"><img src="{{cart.pro_image}} " alt="" style=" height: 100px;"> {{cart.pro_name}}</td>
                         <td class="align-middle">৳ {{cart.pro_price}}</td>
                         <td class="align-middle">{{cart.pro_qnt}}</td>   
-                        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+                        <td class="align-middle"><button class="btn btn-sm btn-danger" (click)="removeToCart(cart.cart_id)"><i class="fa fa-times"></i></button></td>
                     </tr>
                 </tbody>
             </table>

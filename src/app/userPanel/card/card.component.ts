@@ -22,6 +22,19 @@ export class CardComponent {
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.loadDetails();
+
+
+  }
+
+  removeToCart(cartId:number|undefined){
+    cartId && this.cartData && this.cartService.removeToCart(cartId)
+    .subscribe((result)=>{
+      this.loadDetails();
+    })
+  }
+
+  loadDetails(){
     this.cartService.currentCart().subscribe((result) => {
       this.cartData = result;
       let price = 0;
@@ -41,7 +54,6 @@ export class CardComponent {
 
 
   }
-
 
 
 }

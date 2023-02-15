@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Order } from 'src/app/adminPanel/models/order.model';
 import { CartService } from 'src/app/adminPanel/services/cartService/cart.service';
 import { OrderService } from 'src/app/adminPanel/services/orderService/order.service';
@@ -11,7 +12,11 @@ import { OrderService } from 'src/app/adminPanel/services/orderService/order.ser
 export class CheckoutComponent {
 
   totalPrice:number | undefined
-  constructor(private cartService:CartService ,private orderService:OrderService) { }
+  constructor(
+    private cartService:CartService ,
+    private orderService:OrderService,
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
    
@@ -42,6 +47,8 @@ export class CheckoutComponent {
       this.orderService.orderNow(orderData).subscribe((result)=>{
         if(result){
           alert("Order Placed")
+          window.print();
+          this.router.navigate(['/myOrder']);
         }
         
       })

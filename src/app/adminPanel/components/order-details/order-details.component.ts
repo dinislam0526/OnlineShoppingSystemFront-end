@@ -22,16 +22,20 @@ export class OrderDetailsComponent {
   ) { }
 
   ngOnInit(): void {
-    this.getOrderList();
+    this.getAllOrderList();
      
   }
-  approvedData(id: number){
 
+  approvedData(id: number){
+    this.orderService.updateStatus(id).subscribe((result)=>{
+      console.warn(result);
+      
+    })
 
   }
 
-  getOrderList(){
-    this.orderService.orderList().subscribe(
+  getAllOrderList(){
+    this.orderService.getAllOrderList().subscribe(
       (data: Order[]) => {
         this.dataSource= new MatTableDataSource (data);
         this.dataSource.paginator = this.paginator;
