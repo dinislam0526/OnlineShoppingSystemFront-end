@@ -16,6 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AddproductComponent } from '../../components/addproduct/addproduct.component';
 import { AddcategoryComponent } from '../../components/addcategory/addcategory.component';
 import { AddvendorComponent } from '../../components/addvendor/addvendor.component';
+import { OrderDetailsComponent } from '../../components/order-details/order-details.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { AddvendorComponent } from '../../components/addvendor/addvendor.compone
         CreatepurchaseComponent,
         AddcategoryComponent,
         AddproductComponent,
-        AddvendorComponent
+        AddvendorComponent,
+        OrderDetailsComponent
     ],
     providers:[
       CategoryserviceService

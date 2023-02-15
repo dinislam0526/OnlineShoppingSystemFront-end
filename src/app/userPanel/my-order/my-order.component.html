@@ -1,6 +1,6 @@
 <app-user-header></app-user-header>
 
-<div class="container">
+<div class="container" >
     <h1 class="align-middle">
         My Orders
     </h1>
@@ -20,7 +20,7 @@
                     <td class="align-middle"><img src="" alt="" style=" height: 100px;"> </td>
                     <td class="align-middle"># {{data.orderId}} </td>
                     <td class="align-middle">৳ {{data.totalPrice}}</td>
-                    <td class="align-middle">In progress</td>
+                    <td class="align-middle">{{data.status}}</td>
                     <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
                     </td>
                 </tr>
@@ -28,5 +28,5 @@
         </table>
     </div>
 </div>
-
+<p class="footerMargin"></p>
 <app-user-footer> </app-user-footer>

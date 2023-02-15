@@ -6,4 +6,5 @@ export class Order{
     address!: string;
     totalPrice!: number;
     userId!: number;
+    status!:string
 }

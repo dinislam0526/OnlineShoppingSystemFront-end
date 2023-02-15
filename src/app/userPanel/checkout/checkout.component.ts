@@ -36,7 +36,8 @@ export class CheckoutComponent {
       let orderData:Order = {
         ...data,
         totalPrice:this.totalPrice,
-        userId
+        userId,
+        status:'InProgress'
       }
       this.orderService.orderNow(orderData).subscribe((result)=>{
         if(result){
@@ -47,6 +48,10 @@ export class CheckoutComponent {
     }
 
 
+  }
+
+  print(){
+    window.print();
   }
 
 }

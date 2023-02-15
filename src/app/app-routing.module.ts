@@ -6,6 +6,7 @@ import { AddcategoryComponent } from './adminPanel/components/addcategory/addcat
 import { AddproductComponent } from './adminPanel/components/addproduct/addproduct.component';
 import { AddvendorComponent } from './adminPanel/components/addvendor/addvendor.component';
 import { CreatepurchaseComponent } from './adminPanel/components/createpurchase/createpurchase.component';
+import { OrderDetailsComponent } from './adminPanel/components/order-details/order-details.component';
 import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { CardComponent } from './userPanel/card/card.component';
 import { CategoryWiseProductViewComponent } from './userPanel/category-wise-product-view/category-wise-product-view.component';
@@ -69,6 +70,10 @@ const routes: Routes = [
       {
         path: 'addvendor',
         component: AddvendorComponent
+      },
+      {
+        path: 'orderDetails',
+        component: OrderDetailsComponent
       }
 
 
