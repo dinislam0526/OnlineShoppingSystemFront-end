@@ -25,8 +25,8 @@ export class OrderService {
  
   }
 
-  updateStatus(id:number){
-    return this.http.post('http://localhost:8080/order/updateStatus?orderId=' + id,{
+  updateStatus(id:number, status:string){
+    return this.http.post('http://localhost:8080/order/updateStatus?orderId=' + id+'&status='+status,{
       observe: 'response'
     });
   }

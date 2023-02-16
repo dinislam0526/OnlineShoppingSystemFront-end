@@ -27,8 +27,7 @@ export class CheckoutComponent {
           price = price + (+item.pro_price* +item.pro_qnt);
         }
       });
-     this.totalPrice=price+100-(price/10)-(price/10);
-
+     this.totalPrice = +(price+100+(price*.15)-(price*.10)).toFixed(3);
     });
 
 
@@ -42,7 +41,7 @@ export class CheckoutComponent {
         ...data,
         totalPrice:this.totalPrice,
         userId,
-        status:'InProgress'
+        status:'In Progress'
       }
       this.orderService.orderNow(orderData).subscribe((result)=>{
         if(result){

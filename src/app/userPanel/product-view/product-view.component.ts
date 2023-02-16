@@ -88,6 +88,7 @@ export class ProductViewComponent {
         });
 
       }
+      alert("Add to cart Completed!!")
 
     }
   }
@@ -105,6 +106,7 @@ export class ProductViewComponent {
         })
     }
     this.removeCart = false
+    alert("Remove to cart Completed!!")
   }
 
 

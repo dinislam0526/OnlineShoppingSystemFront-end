@@ -45,11 +45,11 @@ export class CardComponent {
         
       });
       this.priceSummery.price = price;
-      this.priceSummery.discount=price/10;
-      this.priceSummery.tax = price/10;
-      this.priceSummery.delivery= 100;
-      this.priceSummery.total= price+100-(price/10)-(price/10);
-      
+      this.priceSummery.discount=price*.10;
+      this.priceSummery.tax = +(price*.15).toFixed(3);
+      this.priceSummery.delivery = 100;
+      this.priceSummery.total = price+100+(price*.15)-(price/10);
+      this.priceSummery.total =+ this.priceSummery.total.toFixed(3)
     });
 
 

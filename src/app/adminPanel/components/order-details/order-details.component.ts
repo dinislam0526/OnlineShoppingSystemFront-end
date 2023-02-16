@@ -11,10 +11,9 @@ import { OrderService } from '../../services/orderService/order.service';
 })
 export class OrderDetailsComponent {
 
-  displayedColumns: string[] = ['Order ID', 'User Name','User Email', 'User Address', 'User Contact','Total Prices','Order Status','Action'];
+  displayedColumns: string[] = ['Order ID', 'User Name', 'User Email', 'User Address', 'User Contact', 'Total Prices', 'Order Status', 'Action'];
   dataSource!: MatTableDataSource<Order>;
-  @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
-
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
 
   constructor(
@@ -23,21 +22,25 @@ export class OrderDetailsComponent {
 
   ngOnInit(): void {
     this.getAllOrderList();
-     
+
   }
 
-  approvedData(id: number){
-    this.orderService.updateStatus(id).subscribe((result)=>{
-      console.warn(result);
-      
+  approvedData(id: number) {
+    this.orderService.updateStatus(id, 'Delivered').subscribe((result) => {
+      this.ngOnInit();
     })
-
   }
 
-  getAllOrderList(){
+  pendingData(id: number) {
+    this.orderService.updateStatus(id, 'In Progress').subscribe((result) => {
+      this.ngOnInit();
+    })
+  }
+
+  getAllOrderList() {
     this.orderService.getAllOrderList().subscribe(
       (data: Order[]) => {
-        this.dataSource= new MatTableDataSource (data);
+        this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
       }
     );

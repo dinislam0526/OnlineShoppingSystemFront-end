@@ -49,9 +49,14 @@
           <ng-container matColumnDef="Action">
             <th mat-header-cell *matHeaderCellDef>Actions</th>
             <td mat-cell *matCellDef="let order">
-              <button mat-raised-button color="primary" (click)="approvedData(order.orderId)">
+              <button *ngIf="order.status==='Delivered'" mat-raised-button color="primary" (click)="pendingData(order.orderId)">
+                <i class="fa fa-edit"></i> Pending
+              </button>
+
+              <button *ngIf="order.status==='In Progress'" mat-raised-button color="primary" (click)="approvedData(order.orderId)">
                 <i class="fa fa-edit"></i> Approbed
               </button>
+
               <button mat-raised-button color="warn">
                 <i class="fa fa-trash"></i> Delete
               </button>
