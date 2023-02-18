@@ -52,7 +52,6 @@ export class CardComponent {
       this.priceSummery.total =+ this.priceSummery.total.toFixed(3)
     });
 
-
   }
 
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './adminPanel/admin-home/admin-home.component';
 import { DefaultComponent } from './adminPanel/admin-home/default/default.component';
+import { AddCouponComponent } from './adminPanel/components/add-coupon/add-coupon.component';
 import { AddcategoryComponent } from './adminPanel/components/addcategory/addcategory.component';
 import { AddproductComponent } from './adminPanel/components/addproduct/addproduct.component';
 import { AddvendorComponent } from './adminPanel/components/addvendor/addvendor.component';
@@ -37,10 +38,6 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'myOrder', component: MyOrderComponent },
   { path: 'productCat/:pro_cat/view', component: CategoryWiseProductViewComponent },
-  
-  
-
-
 
 
   {
@@ -74,7 +71,12 @@ const routes: Routes = [
       {
         path: 'orderDetails',
         component: OrderDetailsComponent
+      },
+      {
+        path: 'addCoupon',
+        component: AddCouponComponent
       }
+
 
 
     ]

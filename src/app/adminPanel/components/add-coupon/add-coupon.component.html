@@ -1,0 +1,96 @@
+<mat-expansion-panel [expanded]=false>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2 style="padding-top: 15px;">Add New Coupon</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Coupon ID</mat-label>
+          <input matInput placeholder="Coupon id" type="text" [(ngModel)]="couponService.currentCoupon.couponId" disabled>
+        </mat-form-field>
+      </div>
+      <div class="col-md-8">
+        <mat-form-field appearance="outline">
+          <mat-label>Coupon Code</mat-label>
+          <input matInput placeholder="Write a new coupon code" type="text" [(ngModel)]="couponService.currentCoupon.couponCode">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Coupon percentage</mat-label>
+          <input matInput placeholder="Write a new coupon persentage" type="text" [(ngModel)]="couponService.currentCoupon.percentage">
+        </mat-form-field>
+      </div>
+      <div class="col-md-8">
+        <mat-form-field appearance="outline">
+          <mat-label>Coupon Description</mat-label>
+          <input matInput placeholder="Write a new coupon description" type="text" [(ngModel)]="couponService.currentCoupon.description">
+        </mat-form-field>
+      </div>
+    </div>
+  <button class="btn btn-success" (click)="createOrUpdateCoupon(couponService.currentCoupon)"> <i class="fa fa-save"></i>Save</button>
+  <button class="btn btn-primary" (click)="clear()"> <i class="fa fa-retweet"></i> Clear</button>
+    <font color="green" size="10px">{{msg}}</font>
+  </mat-expansion-panel>
+<br>
+  <mat-divider></mat-divider>
+<br>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Coupon List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Write anything">
+      </mat-form-field>
+      <div>
+        <table mat-table [dataSource]="dataSource">
+          <!-- ID Column -->
+          <ng-container matColumnDef="Coupon ID">
+            <th mat-header-cell *matHeaderCellDef> Coupon ID </th>
+            <td mat-cell *matCellDef="let cat"> {{cat.couponId}} </td>
+          </ng-container>
+            <!-- Name Column -->
+          <ng-container matColumnDef="Coupon Code">
+            <th mat-header-cell *matHeaderCellDef> Coupon Code </th>
+            <td mat-cell *matCellDef="let cat"> {{cat.couponCode}} </td>
+          </ng-container>
+  
+          <!-- Description Column -->
+          <ng-container matColumnDef="Coupon Description">
+            <th mat-header-cell *matHeaderCellDef> Coupon Description </th>
+            <td mat-cell *matCellDef="let cat"> {{cat.description}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Coupon percentage">
+            <th mat-header-cell *matHeaderCellDef> Coupon percentage</th>
+            <td mat-cell *matCellDef="let cat"> {{cat.percentage}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let cat">
+              <button mat-raised-button color="primary" >
+                <i class="fa fa-edit" (click)="editCoupon(cat)"></i> Edit
+              </button>
+              <button mat-raised-button color="warn">
+                <i class="fa fa-trash" (click)="deleteCoupon(cat.couponId)"></i> Delete
+              </button>
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let cat; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+
+

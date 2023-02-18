@@ -40,7 +40,8 @@ import { MyOrderComponent } from './userPanel/my-order/my-order.component';
     ContactComponent,
     CategoryWiseProductViewComponent,
     UserAuthComponent,
-    MyOrderComponent,
+    MyOrderComponent
+   
     
   ],
   imports: [

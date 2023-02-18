@@ -17,6 +17,7 @@ import { AddproductComponent } from '../../components/addproduct/addproduct.comp
 import { AddcategoryComponent } from '../../components/addcategory/addcategory.component';
 import { AddvendorComponent } from '../../components/addvendor/addvendor.component';
 import { OrderDetailsComponent } from '../../components/order-details/order-details.component';
+import { AddCouponComponent } from '../../components/add-coupon/add-coupon.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,9 @@ import { OrderDetailsComponent } from '../../components/order-details/order-deta
         AddcategoryComponent,
         AddproductComponent,
         AddvendorComponent,
-        OrderDetailsComponent
+        OrderDetailsComponent,
+        AddCouponComponent
+        
     ],
     providers:[
       CategoryserviceService
