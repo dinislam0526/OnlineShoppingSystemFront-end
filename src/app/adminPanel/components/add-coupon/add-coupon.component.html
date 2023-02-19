@@ -27,6 +27,14 @@
       </div>
       <div class="col-md-8">
         <mat-form-field appearance="outline">
+          <mat-label>Minimum Range</mat-label>
+          <input matInput placeholder="Write a new Minimum Range" type="text" [(ngModel)]="couponService.currentCoupon.minimumRange">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline">
           <mat-label>Coupon Description</mat-label>
           <input matInput placeholder="Write a new coupon description" type="text" [(ngModel)]="couponService.currentCoupon.description">
         </mat-form-field>
@@ -67,6 +75,11 @@
             <td mat-cell *matCellDef="let cat"> {{cat.description}} </td>
           </ng-container>
 
+          <ng-container matColumnDef="Minimum Range">
+            <th mat-header-cell *matHeaderCellDef> Minimum Range</th>
+            <td mat-cell *matCellDef="let cat"> {{cat.minimumRange}} </td>
+          </ng-container>
+
           <ng-container matColumnDef="Coupon percentage">
             <th mat-header-cell *matHeaderCellDef> Coupon percentage</th>
             <td mat-cell *matCellDef="let cat"> {{cat.percentage}} </td>
@@ -74,12 +87,12 @@
   
           <ng-container matColumnDef="Actions">
             <th mat-header-cell *matHeaderCellDef>Actions</th>
-            <td mat-cell *matCellDef="let cat">
-              <button mat-raised-button color="primary" >
-                <i class="fa fa-edit" (click)="editCoupon(cat)"></i> Edit
+            <td mat-cell *matCellDef="let coupon">
+              <button mat-raised-button color="primary" (click)="editCoupon(coupon)">
+                <i class="fa fa-edit"></i> Edit
               </button>
-              <button mat-raised-button color="warn">
-                <i class="fa fa-trash" (click)="deleteCoupon(cat.couponId)"></i> Delete
+              <button mat-raised-button color="warn" (click)="deleteCoupon(coupon.couponId)">
+                <i class="fa fa-trash"></i> Delete
               </button>
             </td>
           </ng-container>

@@ -3,4 +3,5 @@ export class Coupon {
     couponCode!: string;
     percentage!: number;
     description!:string;
+    minimumRange!:number;
 } 

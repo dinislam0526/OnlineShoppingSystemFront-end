@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Cart } from 'src/app/adminPanel/models/Cart.model';
 import { PriceSummery } from 'src/app/adminPanel/models/PriceSummery.model';
 import { CartService } from 'src/app/adminPanel/services/cartService/cart.service';
+import { CouponService } from 'src/app/adminPanel/services/couponService/coupon.service';
 
 @Component({
   selector: 'app-card',
@@ -10,6 +11,7 @@ import { CartService } from 'src/app/adminPanel/services/cartService/cart.servic
 })
 export class CardComponent {
 
+  couponCode!:string;
   cartData: Cart[] | undefined;
   priceSummery: PriceSummery = {
     price: 0,
@@ -19,7 +21,7 @@ export class CardComponent {
     total: 0
   };
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService,private couponService:CouponService) { }
 
   ngOnInit(): void {
     this.loadDetails();
@@ -52,6 +54,17 @@ export class CardComponent {
       this.priceSummery.total =+ this.priceSummery.total.toFixed(3)
     });
 
+  }
+
+  coupCodeApply(data:string){
+    
+    if(this.priceSummery.price){
+
+    }
+
+
+    this.couponService.coupCodeApply(data).subscribe();
+    
   }
 
 

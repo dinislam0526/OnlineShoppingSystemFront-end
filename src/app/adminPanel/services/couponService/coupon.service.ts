@@ -33,8 +33,8 @@ export class CouponService {
     return this.http.get<Coupon[]>(this.dataUrl+'/getAll', headerOption);
   }
 
-  deleteCoupon(catid: number): Observable<Coupon> {
-    return this.http.delete<Coupon>(this.dataUrl + '/delete/' + catid, headerOption).pipe(
+  deleteCoupon(coupid: number): Observable<Coupon> {
+    return this.http.delete<Coupon>(this.dataUrl + '/delete/' + coupid, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })
@@ -51,6 +51,14 @@ export class CouponService {
 
   updateCoupon(cat: Coupon): Observable<Coupon> {
     return this.http.put<Coupon>(this.dataUrl + '/update', cat, headerOption).pipe(
+      tap(() => {
+        this.refreshNeeded.next();
+      })
+    );
+  }
+
+  coupCodeApply(data:string){
+    return this.http.put(this.dataUrl + '/update', data, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })

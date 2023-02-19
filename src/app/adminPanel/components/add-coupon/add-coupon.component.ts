@@ -11,7 +11,7 @@ import { CouponService } from '../../services/couponService/coupon.service';
 })
 export class AddCouponComponent {
 
-  displayedColumns: string[] = ['Coupon ID', 'Coupon Code','Coupon Description', 'Coupon percentage', 'Actions'];
+  displayedColumns: string[] = ['Coupon ID', 'Coupon Code','Coupon Description','Minimum Range', 'Coupon percentage', 'Actions'];
   dataSource!: MatTableDataSource<Coupon>;
   @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
   msg="";
@@ -51,6 +51,8 @@ export class AddCouponComponent {
   }
 
   deleteCoupon(couponId: number) {
+    console.warn(couponId);
+    
     this.couponService.deleteCoupon(couponId).subscribe();
   }
 

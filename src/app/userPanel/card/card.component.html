@@ -26,11 +26,11 @@
             </table>
         </div>
         <div class="col-lg-4">
-            <form class="mb-30" action="">
+            <form class="mb-30" #couponCode="ngForm" (ngSubmit)="coupCodeApply(couponCode.value)">
                 <div class="input-group">
-                    <input type="text" class="form-control border-0 p-2" placeholder="Coupon Code">
+                    <input type="text" class="form-control border-0 p-2" placeholder="Coupon Code" name="couponCode" ngModel>
                     <div class="input-group-append">
-                        <button class="btn btn-primary">Apply Coupon</button>
+                        <button class="btn btn-primary" type="submit">Apply Coupon</button>
                     </div>
                 </div>
             </form>
