@@ -58,7 +58,7 @@ export class CouponService {
   }
 
   coupCodeApply(data:string){
-    return this.http.put(this.dataUrl + '/update', data, headerOption).pipe(
+    return this.http.get('http://localhost:8080/coupon/getByCouponCode?couponCode='+ data, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })

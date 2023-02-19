@@ -11,7 +11,7 @@ import { CouponService } from 'src/app/adminPanel/services/couponService/coupon.
 })
 export class CardComponent {
 
-  couponCode!:string;
+  couponCode:string ='';
   cartData: Cart[] | undefined;
   priceSummery: PriceSummery = {
     price: 0,
@@ -47,23 +47,31 @@ export class CardComponent {
         
       });
       this.priceSummery.price = price;
-      this.priceSummery.discount=price*.10;
-      this.priceSummery.tax = +(price*.15).toFixed(3);
+      this.priceSummery.discount=price*.0;
+      this.priceSummery.tax = +(price*.10).toFixed(3);
       this.priceSummery.delivery = 100;
-      this.priceSummery.total = price+100+(price*.15)-(price/10);
+      this.priceSummery.total = price+100+(price*.10)-(this.priceSummery.discount);
       this.priceSummery.total =+ this.priceSummery.total.toFixed(3)
     });
 
   }
 
   coupCodeApply(data:string){
-    
-    if(this.priceSummery.price){
+    console.warn(data+'.....................');
 
-    }
-
-
-    this.couponService.coupCodeApply(data).subscribe();
+    this.couponService.coupCodeApply(data).subscribe((result)=>{
+      console.warn(result);
+      if(this.priceSummery.price >20000){
+        console.warn('.............'+this.priceSummery.price);
+        this.priceSummery.price 
+        this.priceSummery.discount=this.priceSummery.price*.20;
+        this.priceSummery.tax = +(this.priceSummery.price*.10).toFixed(3);
+        this.priceSummery.delivery = 100;
+        this.priceSummery.total = this.priceSummery.price+100+(this.priceSummery.price*.10)-(this.priceSummery.discount);
+        this.priceSummery.total =+ this.priceSummery.total.toFixed(3)
+      }
+      
+    });
     
   }
 
