@@ -57,8 +57,8 @@ export class CouponService {
     );
   }
 
-  coupCodeApply(data:string){
-    return this.http.get('http://localhost:8080/coupon/getByCouponCode?couponCode='+ data, headerOption).pipe(
+  coupCodeApply(data:string):Observable<Coupon>{
+    return this.http.get<Coupon>('http://localhost:8080/coupon/getByCouponCode?couponCode='+ data, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })

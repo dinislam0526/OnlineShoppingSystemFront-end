@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Cart } from 'src/app/adminPanel/models/Cart.model';
+import { Coupon } from 'src/app/adminPanel/models/coupon.model';
 import { PriceSummery } from 'src/app/adminPanel/models/PriceSummery.model';
 import { CartService } from 'src/app/adminPanel/services/cartService/cart.service';
 import { CouponService } from 'src/app/adminPanel/services/couponService/coupon.service';
@@ -56,21 +57,24 @@ export class CardComponent {
 
   }
 
+  coupon!:Coupon;
   coupCodeApply(data:string){
-    console.warn(data+'.....................');
 
-    this.couponService.coupCodeApply(data).subscribe((result)=>{
-      console.warn(result);
-      if(this.priceSummery.price >20000){
-        console.warn('.............'+this.priceSummery.price);
-        this.priceSummery.price 
-        this.priceSummery.discount=this.priceSummery.price*.20;
-        this.priceSummery.tax = +(this.priceSummery.price*.10).toFixed(3);
-        this.priceSummery.delivery = 100;
-        this.priceSummery.total = this.priceSummery.price+100+(this.priceSummery.price*.10)-(this.priceSummery.discount);
-        this.priceSummery.total =+ this.priceSummery.total.toFixed(3)
+    this.couponService.coupCodeApply(data).subscribe((result:Coupon)=>{
+      this.coupon = result;
+    
+      if(this.coupon !== null){
+        if(this.priceSummery.price >this.coupon.minimumRange){
+          console.warn('.............'+this.priceSummery.price);
+          this.priceSummery.price 
+          this.priceSummery.discount=(this.priceSummery.price*this.coupon.percentage) / 100;
+          this.priceSummery.tax = +(this.priceSummery.price*.10).toFixed(3);
+          this.priceSummery.delivery = 100;
+          this.priceSummery.total = this.priceSummery.price+100+(this.priceSummery.price*.10)-(this.priceSummery.discount);
+          this.priceSummery.total =+ this.priceSummery.total.toFixed(3)
+        }
       }
-      
+
     });
     
   }
