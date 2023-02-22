@@ -25,3 +25,11 @@ a {
         cursor: pointer;
     }
     
+    /* coupon discout show */
+    marquee{
+        font-size: 20px;
+        font-weight: 500;
+        
+        color: darkblue;
+        font-family: sans-serif;
+        }

@@ -15,19 +15,19 @@ import { UserService } from 'src/app/adminPanel/services/userAuthService/user.se
 export class UserAuthComponent implements OnInit {
   showLogin: boolean = true
   authError: string = "";
-  constructor(private user: UserService, private productService: ProductService, private cartService: CartService) { }
+  constructor(private userService: UserService, private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.user.userAuthReload();
+    this.userService.userAuthReload();
   };
 
   signUp(data: SignUp) {
-    this.user.userSignUp(data);
+    this.userService.userSignUp(data);
   };
 
   login(data: Login) {
-    this.user.userLogin(data)
-    this.user.invalidUserAuth.subscribe((result) => {
+    this.userService.userLogin(data)
+    this.userService.invalidUserAuth.subscribe((result) => {
       if (result) {
         this.authError = "User not found"
       } else {
