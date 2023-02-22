@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/adminPanel/models/Category.model';
+import { Coupon } from 'src/app/adminPanel/models/coupon.model';
 import { CartService } from 'src/app/adminPanel/services/cartService/cart.service';
+import { CouponService } from 'src/app/adminPanel/services/couponService/coupon.service';
 import { ProductService } from 'src/app/adminPanel/services/productService/product.service';
 
 @Component({
@@ -16,10 +18,12 @@ export class UserHeaderComponent implements OnInit {
   test: boolean = false;
   sellerName: string = "";
   userName: string = "";
+  couponDetail!:Coupon[];
+
   constructor(
     public productService: ProductService,
     public cartService: CartService,
-    
+    public couponService:CouponService,
     private route: Router
   ) { }
 
@@ -27,6 +31,8 @@ export class UserHeaderComponent implements OnInit {
     this.getLogin();
 
     this.getAllCategoryName();
+
+    this.getAllCouponDetails();
 
     let cartData = localStorage.getItem('localCart');
     if (cartData) {
@@ -73,9 +79,7 @@ export class UserHeaderComponent implements OnInit {
       this.test = true;
       this.cartService.getCartList(userData.id);
     }
-    else {
-
-    }
+    
   }
 
   getAllCategoryName() {
@@ -92,28 +96,13 @@ export class UserHeaderComponent implements OnInit {
     this.productService.cartData1.emit([]);
   }
 
-  searchProduct(query: KeyboardEvent) {
-    if (query) {
-      const element = query.target as HTMLInputElement;
-      // this.product.searchProduct(element.value).subscribe((result)=>{
+  getAllCouponDetails(){
+    this.couponService.getAllCouponDetails().subscribe((data)=>{
+      this.couponDetail = data;
+    })
+  }
+  
 
-      //   if(result.length>5){
-      //     result.length=length
-      //   }
-      //   this.searchResult=result;
-      // })
-    }
-  }
-  hideSearch() {
-    // this.searchResult=undefined
-  }
-  redirectToDetails(id: number) {
-    this.route.navigate(['/details/' + id])
-  }
-  submitSearch(val: string) {
-    console.warn(val)
-    this.route.navigate([`search/${val}`]);
-  }
 }
 
 

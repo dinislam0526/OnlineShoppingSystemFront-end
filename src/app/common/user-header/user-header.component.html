@@ -44,60 +44,6 @@
           <button class="btn btn-warning text-white">Search</button>
         </div>
       </div>
-      <!-- <div [ngSwitch]="menuType"> -->
-      <!-- <ul class="navbar-nav ms-auto " *ngSwitchCase="'default'">
-          <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase active" aria-current="page" routerLink="/">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle mx-1 text-uppercase" data-bs-toggle="dropdown" href="#"
-              aria-expanded="false">Category</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" *ngFor="let c of allCategory">{{c.catname}}</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase" routerLink="/contact">Contact us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase" routerLink="/card"><i
-                class="fa-solid fa-cart-shopping me-1"></i>Cart({{cartItems}})</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase" routerLink="/UserAuth"><i
-                class="fa-solid fa-user me-1"></i>Login/SignUp</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ms-auto" *ngSwitchCase="'user'">
-          <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase active" aria-current="page" routerLink="/">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle mx-1 text-uppercase" data-bs-toggle="dropdown" href="#"
-              aria-expanded="false">Category</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" *ngFor="let c of allCategory">{{c.catname}}</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase" routerLink="/contact">Contact us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase" href="#">My Order</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase" routerLink="/card"><i
-                class="fa-solid fa-cart-shopping me-1"></i>Cart({{cartItems}})</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase" >{{userName}}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-1 text-uppercase" style="cursor: pointer;" (click)="userLogout()">Logout</a>
-          </li>
-        </ul> -->
-      <!-- </div> -->
-
       <ul class="navbar-nav ms-auto ">
         <li class="nav-item">
           <a class="nav-link mx-1 text-uppercase active" aria-current="page" routerLink="/">Home</a>
@@ -127,7 +73,8 @@
           <a class="nav-link mx-1 text-uppercase">{{userName}}</a>
         </li>
         <li class="nav-item" *ngIf="test">
-          <a class="nav-link mx-1 text-uppercase" (click)="userLogout()" style="cursor: pointer;"><i class="fa-solid fa-user me-1"></i>Logout</a>
+          <a class="nav-link mx-1 text-uppercase" (click)="userLogout()" style="cursor: pointer;"><i
+              class="fa-solid fa-user me-1"></i>Logout</a>
         </li>
       </ul>
     </div>
@@ -141,6 +88,6 @@
     </p>
   </div>
 </div>
-<div class="col-lg-12 text-center">
-  <marquee>Purchase 20000tk to 30000tk discount 20%, coupon code is sp0020</marquee>
+<div class="col-lg-12 text-center" *ngFor="let data of couponDetail">
+  <marquee>{{data.description}} discount {{data.percentage}}%, coupon code is {{data.couponCode}}.</marquee>
 </div><br>

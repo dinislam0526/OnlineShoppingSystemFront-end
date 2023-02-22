@@ -30,7 +30,7 @@ export class CouponService {
   }
 
   getAllCoupon(): Observable<Coupon[]> {
-    return this.http.get<Coupon[]>(this.dataUrl+'/getAll', headerOption);
+    return this.http.get<Coupon[]>(this.dataUrl+'/getAllCouponDetails', headerOption);
   }
 
   deleteCoupon(coupid: number): Observable<Coupon> {
@@ -59,6 +59,14 @@ export class CouponService {
 
   coupCodeApply(data:string):Observable<Coupon>{
     return this.http.get<Coupon>('http://localhost:8080/coupon/getByCouponCode?couponCode='+ data, headerOption).pipe(
+      tap(() => {
+        this.refreshNeeded.next();
+      })
+    );
+  }
+
+  getAllCouponDetails():Observable<Coupon[]>{
+    return this.http.get<Coupon[]>('http://localhost:8080/coupon/getAllCouponDetails', headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })
