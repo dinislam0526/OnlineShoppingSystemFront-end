@@ -90,6 +90,7 @@ export class ProductService {
     );
   }
 
+ 
   // localStorege add to cart
   localAddToCart(data:Product){
     let cartData = [];
@@ -104,6 +105,17 @@ export class ProductService {
       this.cartData1.emit(cartData);
 
     }
+  }
+
+  //cart data show from localStorage
+  getCartFromLocal(){
+    let cartData = [];
+    let localCart = localStorage.getItem('localCart');
+    if(localCart){
+      cartData = JSON.parse(localCart);
+    }
+    return cartData;
+
   }
   
   //prodcut remove from localStorage

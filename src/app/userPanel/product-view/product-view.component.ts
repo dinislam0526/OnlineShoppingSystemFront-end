@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from 'src/app/adminPanel/models/Cart.model';
 import { Product } from 'src/app/adminPanel/models/product.mode';
 import { CartService } from 'src/app/adminPanel/services/cartService/cart.service';
@@ -20,7 +20,8 @@ export class ProductViewComponent {
   constructor(
     public productService: ProductService,
     private route: ActivatedRoute,
-    public cartService: CartService
+    public cartService: CartService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -88,8 +89,9 @@ export class ProductViewComponent {
         });
 
       }
-      alert("Add to cart Completed!!")
-
+      // alert("Add to cart Completed!!")
+      this.router.navigate(['/card'])
+      this.ngOnInit();
     }
   }
 
