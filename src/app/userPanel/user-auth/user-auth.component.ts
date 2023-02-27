@@ -70,12 +70,11 @@ export class UserAuthComponent implements OnInit {
         }
       })
     }
-
     setTimeout(() => {
       this.cartService.getCartList(userId)
     }, 2000);
-
-
   }
+
+
 
 }

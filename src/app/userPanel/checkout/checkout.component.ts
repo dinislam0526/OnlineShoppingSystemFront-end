@@ -27,7 +27,7 @@ export class CheckoutComponent {
           price = price + (+item.pro_price* +item.pro_qnt);
         }
       });
-     this.totalPrice = +(price+100+(price*.15)-(price*.10)).toFixed(3);
+     this.totalPrice = +(price+100+(price*.10)-(price*.0)).toFixed(3);
     });
 
 

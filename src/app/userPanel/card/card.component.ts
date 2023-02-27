@@ -33,8 +33,6 @@ export class CardComponent {
 
   ngOnInit(): void {
     this.loadDetails();
-
-
   }
 
   removeToCart(cartId:number|undefined){
@@ -82,13 +80,10 @@ export class CardComponent {
 
   coupon!:Coupon;
   coupCodeApply(data:string){
-
     this.couponService.coupCodeApply(data).subscribe((result:Coupon)=>{
       this.coupon = result;
-    
-      if(this.coupon !== null){
-        if(this.priceSummery.price >this.coupon.minimumRange){
-          console.warn('.............'+this.priceSummery.price);
+          if(this.coupon !== null){
+        if(this.priceSummery.price >= this.coupon.minimumRange){
           this.priceSummery.price 
           this.priceSummery.discount=(this.priceSummery.price*this.coupon.percentage) / 100;
           this.priceSummery.tax = +(this.priceSummery.price*.10).toFixed(3);
