@@ -8,23 +8,23 @@
         <div class="col-md-4">
             <mat-form-field appearance="outline">
                 <mat-label>Vendor ID</mat-label>
-                <input matInput placeholder="Category id" type="text" disabled>
+                <input matInput placeholder="Category id" type="text" [(ngModel)]="vendorService.currentVendor.vendorId" disabled>
             </mat-form-field>
         </div>
         <div class="col-md-8">
             <mat-form-field appearance="outline">
                 <mat-label>Vendor Name</mat-label>
-                <input matInput placeholder="Write a new category name" type="text">
+                <input matInput placeholder="Write a new category name" type="text" [(ngModel)]="vendorService.currentVendor.vendorName">
             </mat-form-field>
         </div>
     </div>
     <mat-form-field appearance="outline">
         <mat-label>Vendor Description</mat-label>
-        <input matInput placeholder="Write category description" type="text">
+        <input matInput placeholder="Write category description" type="text" [(ngModel)]="vendorService.currentVendor.vendordesc">
     </mat-form-field>
-    <button class="btn btn-success"> <i class="fa fa-save"></i>Save</button>
-    <button class="btn btn-primary"> <i class="fa fa-retweet"></i> Clear</button>
-    <font color="green" size="10px">"Success"</font>
+    <button class="btn btn-success" (click)="createOrUpdateVendor(vendorService.currentVendor)"> <i class="fa fa-save"></i>Save</button>
+    <button class="btn btn-primary" (click)="clear()"> <i class="fa fa-retweet"></i> Clear</button>
+    <font color="green" size="10px">"{{msg}}"</font>
 </mat-expansion-panel>
 <br>
 <mat-divider></mat-divider>
@@ -39,32 +39,32 @@
             <input matInput placeholder="Write anything">
         </mat-form-field>
         <div>
-            <table mat-table>
+            <table mat-table [dataSource]="dataSource">
                 <!-- ID Column -->
-                <ng-container matColumnDef="Category ID">
+                <ng-container matColumnDef="Vendor ID">
                     <th mat-header-cell *matHeaderCellDef> Vendor ID </th>
-                    <td mat-cell *matCellDef="let cat"> 101 </td>
+                    <td mat-cell *matCellDef="let ven"> {{ven.vendorId}} </td>
                 </ng-container>
 
                 <!-- Name Column -->
-                <ng-container matColumnDef="Category Name">
+                <ng-container matColumnDef="Vendor Name">
                     <th mat-header-cell *matHeaderCellDef> Vendor Name </th>
-                    <td mat-cell *matCellDef="let cat"> Product </td>
+                    <td mat-cell *matCellDef="let ven"> {{ven.vendorName}} </td>
                 </ng-container>
 
                 <!-- Description Column -->
-                <ng-container matColumnDef="Category Description">
+                <ng-container matColumnDef="Vendor Description">
                     <th mat-header-cell *matHeaderCellDef> Vendor Description </th>
-                    <td mat-cell *matCellDef="let cat"> Description </td>
+                    <td mat-cell *matCellDef="let ven"> {{ven.vendordesc}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Actions">
                     <th mat-header-cell *matHeaderCellDef>Actions</th>
-                    <td mat-cell *matCellDef="let cat">
-                        <button mat-raised-button color="primary">
+                    <td mat-cell *matCellDef="let ven">
+                        <button mat-raised-button color="primary" (click)="editVendor(ven)">
                             <i class="fa fa-edit"></i> Edit
                         </button>
-                        <button mat-raised-button color="warn">
+                        <button mat-raised-button color="warn" (click)="deleteVendor(ven.vendorId)">
                             <i class="fa fa-trash"></i> Delete
                         </button>
                     </td>
