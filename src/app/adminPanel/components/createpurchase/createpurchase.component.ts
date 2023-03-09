@@ -16,12 +16,10 @@ import { VendorService } from '../../services/vendorService/vendor.service';
 })
 export class CreatepurchaseComponent implements OnInit {
   
-  displayedColumns: string[] = ['Detail ID', 'Purchase ID', 'Product Name','Qauntity', 'Unit Price','SubTotal', 'Date', 'Actions'];
-  dataSource!: MatTableDataSource<Purchase>;
+  displayedColumns: string[] = [ 'Purchase ID','Vendor Name','Product Name','Qauntity', 'Unit Price','Total Price', 'Date', 'Actions'];
+  dataSource!: MatTableDataSource<Object>;
   @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
   msg="";
-
-
 
   allVendor!:Vendor[];
   allProduct!:Product[];
@@ -37,6 +35,10 @@ export class CreatepurchaseComponent implements OnInit {
     this.getAllVendor();
     this.getAllProduct();
     this.getAllPurchase();
+    this.purchaseService.refreshNeed.subscribe(() => {
+      this.getAllPurchase();
+    });
+     
 
   }
 
@@ -87,8 +89,11 @@ export class CreatepurchaseComponent implements OnInit {
   
   getAllPurchase(){
     this.purchaseService.getAllPurchase().subscribe(
-      (data: Purchase[]) => {
+      (data: Object[]) => {
+        console.warn(".......getAllPurchase......."+ data);
         this.dataSource= new MatTableDataSource (data);
+        console.warn("......getAllPurchase........"+this.dataSource);
+        
         this.dataSource.paginator = this.paginator;
       }
     );

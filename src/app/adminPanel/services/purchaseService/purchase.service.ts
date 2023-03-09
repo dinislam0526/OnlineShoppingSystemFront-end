@@ -14,6 +14,7 @@ const headerOption = {
 })
 export class PurchaseService {
   dataUrl = 'http://localhost:8080/purchase';
+  dataUrl2 = 'http://localhost:8080/joinTable';
 
   panelOpenState = false;
 
@@ -29,8 +30,8 @@ export class PurchaseService {
     return this.refreshNeeded;
   }
 
-  getAllPurchase(): Observable<Purchase[]> {
-    return this.http.get<Purchase[]>(this.dataUrl+'/getAll', headerOption);
+  getAllPurchase(): Observable<Object[]> {
+    return this.http.get<Object[]>(this.dataUrl2+'/getAll', headerOption);
   }
 
   deletePurchase(catid: number): Observable<Purchase> {

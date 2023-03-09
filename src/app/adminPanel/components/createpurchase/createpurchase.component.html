@@ -8,7 +8,8 @@
     <div class="col-md-3">
       <mat-form-field appearance="outline">
         <mat-label>Purchase ID</mat-label>
-        <input matInput placeholder="Purchase ID" type="text" [(ngModel)]="purchaseService.currentPurchase.purchase_id" disabled>
+        <input matInput placeholder="Purchase ID" type="text" [(ngModel)]="purchaseService.currentPurchase.purchase_id"
+          disabled>
       </mat-form-field>
     </div>
     <div class="col-md-3">
@@ -36,7 +37,8 @@
     <div class="col-md-3">
       <mat-form-field appearance="outline">
         <mat-label>Purchase Price PU</mat-label>
-        <input matInput placeholder="Write Purchase Price Per Unit" type="text" [(ngModel)]="purchaseService.currentPurchase.price" disabled>
+        <input matInput placeholder="Write Purchase Price Per Unit" type="text"
+          [(ngModel)]="purchaseService.currentPurchase.price">
       </mat-form-field>
     </div>
     <div class="col-md-3">
@@ -54,14 +56,11 @@
     <div class="col-md-3">
       <mat-form-field appearance="outline">
         <mat-label>Purchase Date</mat-label>
-        <input matInput placeholder="Write Purchase Date" type="text" [(ngModel)]="purchaseService.currentPurchase.date" disabled>
-        <!-- <input matInput [matDatepicker]="picker"
-                        [(ngModel)]="purchasedetailService.currentPurchasedetail.purdate">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker> -->
+        <input matInput [matDatepicker]="picker" [(ngModel)]="purchaseService.currentPurchase.date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
-
   </div>
   <button class="btn btn-success" (click)="createOrUpdatePurchase(purchaseService.currentPurchase)">
     <i class="fa fa-save"></i>
@@ -81,43 +80,35 @@
       <input matInput placeholder="Write anything">
     </mat-form-field>
     <div>
-      <table mat-table>
-        <!-- ID Column -->
-        <ng-container matColumnDef="Detail ID">
-          <th mat-header-cell *matHeaderCellDef> Detail ID </th>
-          <td mat-cell *matCellDef="let purdet"> {{purdet[2].purdetid}} </td>
-        </ng-container>
-
-        <!-- Name Column -->
+      <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="Purchase ID">
           <th mat-header-cell *matHeaderCellDef> Purchase ID </th>
-          <td mat-cell *matCellDef="let purdet"> {{purdet[0].purid}} </td>
+          <td mat-cell *matCellDef="let purdet"> {{purdet[0].purchase_id}} </td>
         </ng-container>
-
-        <!-- Description Column -->
+        <ng-container matColumnDef="Vendor Name">
+          <th mat-header-cell *matHeaderCellDef> Vendor Name </th>
+          <td mat-cell *matCellDef="let purdet"> {{purdet[0].vendorName}} </td>
+        </ng-container>
         <ng-container matColumnDef="Product Name">
           <th mat-header-cell *matHeaderCellDef> Product Name </th>
-          <td mat-cell *matCellDef="let purdet"> {{purdet[1].pname}} </td>
+          <td mat-cell *matCellDef="let purdet"> {{purdet[1].pro_name}} </td>
         </ng-container>
-
         <ng-container matColumnDef="Qauntity">
           <th mat-header-cell *matHeaderCellDef> Qauntity </th>
-          <td mat-cell *matCellDef="let purdet"> {{purdet[2].purqty}} </td>
+          <td mat-cell *matCellDef="let purdet"> {{purdet[0].qty}} </td>
         </ng-container>
-
         <ng-container matColumnDef="Unit Price">
           <th mat-header-cell *matHeaderCellDef> Unit Price </th>
-          <td mat-cell *matCellDef="let purdet"> {{purdet[2].ppricepu}} </td>
+          <td mat-cell *matCellDef="let purdet"> {{purdet[0].price}} </td>
         </ng-container>
-
-        <ng-container matColumnDef="SubTotal">
+        <ng-container matColumnDef="Total Price">
           <th mat-header-cell *matHeaderCellDef>Total Price </th>
-          <td mat-cell *matCellDef="let purdet"> {{purdet[2].subtotal}} </td>
+          <td mat-cell *matCellDef="let purdet"> {{purdet[0].total}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Date">
           <th mat-header-cell *matHeaderCellDef> Date </th>
-          <td mat-cell *matCellDef="let purdet"> {{purdet[2].purdate}} </td>
+          <td mat-cell *matCellDef="let purdet"> {{purdet[0].date}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Actions">
