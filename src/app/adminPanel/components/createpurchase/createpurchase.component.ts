@@ -87,9 +87,11 @@ export class CreatepurchaseComponent implements OnInit {
     this.togglePanel();
   }
   
+  valu1:any[]=[];
   getAllPurchase(){
     this.purchaseService.getAllPurchase().subscribe(
       (data: Object[]) => {
+    
         console.warn(".......getAllPurchase......."+ data);
         this.dataSource= new MatTableDataSource (data);
         console.warn("......getAllPurchase........"+this.dataSource);

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, tap } from 'rxjs';
+import { Product } from '../../models/product.mode';
 import { Purchase } from '../../models/Purchase.model';
 
 const headerOption = {
@@ -17,9 +18,15 @@ export class PurchaseService {
   dataUrl2 = 'http://localhost:8080/joinTable';
 
   panelOpenState = false;
-
+ 
+  product:Product=new Product();
   currentPurchase: Purchase = new Purchase();
-  
+  setPrice(val: Product){
+   console.warn('seluy7ioynuyhiyhjiuj',val);
+   this.currentPurchase.pro_id = val.pro_id;
+   this.currentPurchase.price=val.pro_price;
+  }
+  // currentPurchase.price=product.pro_price;
   constructor(
     private http: HttpClient
   ) { }
