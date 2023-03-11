@@ -41,6 +41,7 @@ import { MyOrderComponent } from './userPanel/my-order/my-order.component';
     CategoryWiseProductViewComponent,
     UserAuthComponent,
     MyOrderComponent
+    
    
     
   ],

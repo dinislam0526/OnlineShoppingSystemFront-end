@@ -8,6 +8,7 @@ import { AddproductComponent } from './adminPanel/components/addproduct/addprodu
 import { AddvendorComponent } from './adminPanel/components/addvendor/addvendor.component';
 import { CreatepurchaseComponent } from './adminPanel/components/createpurchase/createpurchase.component';
 import { OrderDetailsComponent } from './adminPanel/components/order-details/order-details.component';
+import { StockComponent } from './adminPanel/components/stock/stock.component';
 import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { CardComponent } from './userPanel/card/card.component';
 import { CategoryWiseProductViewComponent } from './userPanel/category-wise-product-view/category-wise-product-view.component';
@@ -75,6 +76,10 @@ const routes: Routes = [
       {
         path: 'addCoupon',
         component: AddCouponComponent
+      },
+      {
+        path: 'stock',
+        component: StockComponent
       }
 
 

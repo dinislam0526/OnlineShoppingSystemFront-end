@@ -22,10 +22,10 @@ export class PurchaseService {
   product:Product=new Product();
   currentPurchase: Purchase = new Purchase();
   setPrice(val: Product){
-   console.warn('seluy7ioynuyhiyhjiuj',val);
    this.currentPurchase.pro_id = val.pro_id;
    this.currentPurchase.price=val.pro_price;
   }
+
   // currentPurchase.price=product.pro_price;
   constructor(
     private http: HttpClient
