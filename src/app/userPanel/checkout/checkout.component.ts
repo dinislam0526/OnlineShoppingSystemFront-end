@@ -21,13 +21,18 @@ export class CheckoutComponent {
   ngOnInit(): void {
    
     this.cartService.currentCart().subscribe((result) => {
-      let price = 0;
-      result.forEach((item) => {
-        if(item.pro_qnt){
-          price = price + (+item.pro_price* +item.pro_qnt);
-        }
-      });
-     this.totalPrice = +(price+100+(price*.10)-(price*.0)).toFixed(3);
+    //   let price = 0;
+    //   result.forEach((item) => {
+    //     if(item.pro_qnt){
+    //       price = price + (+item.pro_price* +item.pro_qnt);
+    //     }
+    //   });
+    //  this.totalPrice = +(price+100+(price*.10)-(price*.0)).toFixed(3);
+
+    let totalPrice = localStorage.getItem('totalPrice');
+    let currenttotalPrice = totalPrice && JSON.parse(totalPrice);
+
+      this.totalPrice=currenttotalPrice;
     });
 
 
