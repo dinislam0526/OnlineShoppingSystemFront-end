@@ -98,6 +98,8 @@ export class CardComponent {
 
   redirectToCheckoutPage(){
     if(localStorage.getItem('user')){
+      localStorage.setItem('totalPrice',JSON.stringify(this.priceSummery.total));
+      
       this.router.navigate(['/checkout'])
     }else{
       this.router.navigate(['/UserAuth'])
